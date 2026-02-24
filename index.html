@@ -180,7 +180,9 @@
     .about-block p.zh { font-family: 'STSong', 'SimSun', serif; letter-spacing: 0.05em; }
     .about-highlights {
       display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem; margin-top: 3rem;
+      gap: 1.5rem;
+      max-width: 1100px; margin: 0 auto 3rem;
+      padding: 0 2rem;
     }
     .highlight-card {
       background: var(--cream);
@@ -190,7 +192,7 @@
       text-align: center;
     }
     .highlight-card .icon { font-size: 2rem; margin-bottom: 0.75rem; }
-    .highlight-card .num { font-size: 2rem; color: var(--burgundy); font-weight: bold; }
+    .highlight-card .num { font-size: clamp(1.4rem, 3vw, 2rem); color: var(--burgundy); font-weight: bold; }
     .highlight-card p { font-size: 0.85rem; color: var(--text-light); margin: 0; }
     .highlight-card p.zh { font-family: 'STSong', 'SimSun', serif; letter-spacing: 0.1em; }
 
@@ -422,7 +424,25 @@
 </section>
 
 <!-- ABOUT -->
-<section id="about">
+<section id="about" style="padding-top: 4rem;">
+  <div class="about-highlights">
+      <div class="highlight-card">
+        <div class="num">1998</div>
+        <p>Year Founded</p>
+        <p class="zh">成立年份</p>
+      </div>
+      <div class="highlight-card">
+        <div class="num">28+</div>
+        <p>Years of Service</p>
+        <p class="zh">服务年限</p>
+      </div>
+      <div class="highlight-card">
+        <div class="num">Brooklyn</div>
+        <p>First Buddhist Temple in Brooklyn</p>
+        <p class="zh">布鲁克林第一座汉传佛教寺院</p>
+      </div>
+  </div>
+
   <div class="section-inner">
     <div class="section-header">
       <div class="label">Our Story &middot; 我们的故事</div>
@@ -454,24 +474,6 @@
         <h3>Civic Engagement <span class="zh">公民参与</span></h3>
         <p>WBA is woven into the fabric of New York City. We participate in interfaith forums, memorial services, Chinatown cultural parades, and partnerships with civic organizations including NYPD Community Affairs. Our members demonstrate daily that compassion, wisdom, and harmony are universal values.</p>
         <p class="zh">西方佛教协会与纽约市社区深度融合。协会积极参与宗教对话论坛、纪念活动、唐人街文化游行以及与纽约警察局社区事务部等机构的合作。我们的成员每天都在彰显慈悲、智慧与和谐的普世价值。</p>
-      </div>
-    </div>
-
-    <div class="about-highlights">
-      <div class="highlight-card">
-        <div class="num">1998</div>
-        <p>Year Founded</p>
-        <p class="zh">成立年份</p>
-      </div>
-      <div class="highlight-card">
-        <div class="num">28+</div>
-        <p>Years of Service</p>
-        <p class="zh">服务年限</p>
-      </div>
-      <div class="highlight-card">
-        <div class="num">Brooklyn</div>
-        <p>First Buddhist Temple in Brooklyn</p>
-        <p class="zh">布鲁克林第一座汉传佛教寺院</p>
       </div>
     </div>
   </div>

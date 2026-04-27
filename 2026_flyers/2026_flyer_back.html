@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>2026 Buddhist Cultural Festival - Back</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sheet-width: 8.5in;
+    --sheet-height: 11in;
+    --print-safe-inset: 0.05in;
+  }
+
+  body {
+    background-color: #1a1a1a;
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh; margin: 0; padding: 20px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+
+  .poster {
+    width: var(--sheet-width); height: var(--sheet-height);
+    background-image: url('background_back.jpg');
+    background-size: 100% 100%;
+    background-position: center; background-repeat: no-repeat;
+    background-color: #fdf8f0;
+    position: relative; overflow: hidden; box-sizing: border-box;
+    box-shadow: 0px 15px 40px rgba(0,0,0,0.8);
+  }
+
+  @media print {
+    @page { size: letter portrait; margin: 0; }
+    html, body {
+      width: var(--sheet-width);
+      height: var(--sheet-height);
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      background: transparent !important;
+    }
+    body {
+      display: block !important;
+      min-height: auto !important;
+      position: relative !important;
+      font-size: 0 !important;
+      line-height: 0 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .poster {
+      width: calc(var(--sheet-width) - (var(--print-safe-inset) * 2)) !important;
+      height: calc(var(--sheet-height) - (var(--print-safe-inset) * 2)) !important;
+      margin: 0 !important;
+      position: absolute !important;
+      top: var(--print-safe-inset) !important;
+      left: var(--print-safe-inset) !important;
+      font-size: initial !important;
+      line-height: normal !important;
+      box-shadow: none !important;
+      overflow: hidden !important;
+      page-break-inside: avoid !important;
+      break-inside: avoid-page !important;
+      page-break-after: avoid !important;
+      break-after: avoid-page !important;
+    }
+    .banner-top,
+    .banner-mid,
+    .pin-gather,
+    .gather-star,
+    .gather-info,
+    .stop-marker,
+    .distance-badge {
+      z-index: 4 !important;
+    }
+    .route-overlay {
+      z-index: 2 !important;
+    }
+    .gather-info {
+      display: flex !important;
+    }
+    .stop-marker {
+      display: flex !important;
+    }
+    .gather-info-item,
+    .stop-card,
+    .distance-badge {
+      background: #fdf8f0 !important;
+      border-color: #c8922a !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+  }
+
+  /* ── HEADER BANNERS (positioned inside the decorative frames) ── */
+  .banner-top {
+    position: absolute;
+    left: 50%; top: 6.8%;
+    transform: translateX(-50%);
+    text-align: center;
+    white-space: nowrap;
+  }
+  .banner-top .en {
+    font-size: 17pt; color: #5c1420; font-weight: bold;
+    letter-spacing: 0.06em;
+  }
+  .banner-top .zh {
+    font-family: 'Noto Serif TC','STSong','SimSun',serif;
+    font-size: 17pt; color: #7b1f2e; font-weight: bold; letter-spacing: 0.15em;
+  }
+
+  .banner-mid {
+    position: absolute;
+    left: 50%; top: 52%;
+    transform: translateX(-50%);
+    text-align: center;
+    white-space: nowrap;
+  }
+  .banner-mid .en {
+    font-size: 17pt; color: #5c1420; font-weight: bold;
+    letter-spacing: 0.06em;
+  }
+  .banner-mid .zh {
+    font-family: 'Noto Serif TC','STSong','SimSun',serif;
+    font-size: 17pt; color: #7b1f2e; font-weight: bold; letter-spacing: 0.15em;
+  }
+
+  /* ── GATHERING POINT PIN ── */
+  .pin-gather {
+    position: absolute;
+    left: 52%; top: 33%;
+    transform: translate(-50%, -100%);
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .pin-gather .pin-label {
+    background: #5c1420;
+    color: #fff;
+    font-size: 9pt;
+    letter-spacing: 0.1em;
+    padding: 4pt 10pt;
+    border-radius: 5px;
+    white-space: nowrap;
+    margin-bottom: 3pt;
+  }
+  .pin-gather .pin-label-zh {
+    font-family: 'Noto Serif TC','STSong','SimSun',serif;
+    font-size: 9pt; color: #fdf0d0;
+    letter-spacing: 0.1em;
+    font-weight: normal;
+    margin-left: 4pt;
+  }
+  .pin-gather .pin-icon {
+    width: 0; height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 11px solid #5c1420;
+  }
+  .gather-star {
+    position: absolute;
+    left: 52%; top: 33.5%;
+    transform: translate(-50%, -50%);
+    width: 22pt; height: 22pt;
+    background: #5c1420;
+    border: 2.5px solid #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #e8c060;
+    font-size: 13pt;
+  }
+
+  /* ── INFO STRIP ── */
+  .gather-info {
+    position: absolute;
+    left: 5%; right: 5%;
+    top: 40%;
+    display: flex; justify-content: space-between;
+    gap: 6pt;
+  }
+  .gather-info-item {
+    flex: 1; text-align: center;
+    background: rgba(253, 248, 240, 0.92);
+    border: 1px solid rgba(200, 146, 42, 0.5);
+    border-radius: 8px;
+    padding: 6pt 5pt 5pt 5pt;
+    backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    display: flex; flex-direction: column;
+    justify-content: space-between; align-items: center;
+  }
+  .gather-info-item .label {
+    font-size: 9pt; color: #b8860b;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-bottom: 3pt; font-weight: bold;
+  }
+  .gather-info-item .value {
+    font-size: 9pt; color: #5c1420;
+    line-height: 1.4; letter-spacing: 0.15em;
+  }
+  .gather-info-item .value.compact {
+    letter-spacing: 0.04em;
+  }
+  .gather-info-item .value-zh {
+    font-family: 'Noto Serif TC','STSong','SimSun',serif;
+    font-size: 9pt; color: #7b1f2e; letter-spacing: 0.15em;
+    margin-top: 2pt;
+  }
+  .gather-info-item .value-zh.compact {
+    letter-spacing: 0.06em;
+  }
+
+  /* Subway badges */
+  .subway-row { margin-top: 2pt; line-height: 1.8; }
+  .subway-badge {
+    display: inline-block;
+    width: 13pt; height: 13pt;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 9pt; font-weight: bold;
+    text-align: center; line-height: 13pt;
+    margin: 0 0.5pt;
+  }
+  .sub-blue { background: #0039A6; }
+  .sub-red { background: #EE352E; }
+  .sub-orange { background: #FF6319; }
+  .sub-yellow { background: #FCCC0A; color: #333; }
+  .sub-green { background: #00933C; }
+
+  /* ── ROUTE MAP ANNOTATIONS ── */
+  .route-overlay {
+    position: absolute;
+    left: 0; top: 53%;
+    width: 100%; height: 44%;
+    pointer-events: none;
+  }
+
+  /* Stop markers with background card for visibility */
+  .stop-marker {
+    position: absolute;
+    display: flex; flex-direction: column; align-items: center;
+    transform: translate(-50%, 0);
+  }
+  .stop-card {
+    background: rgba(253, 248, 240, 0.90);
+    border: 1px solid rgba(200, 146, 42, 0.45);
+    border-radius: 8px;
+    padding: 4pt 8pt;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .stop-circle {
+    width: 22pt; height: 22pt;
+    background: #5c1420;
+    border: 2.5px solid #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #e8c060;
+    font-size: 11pt; font-weight: bold;
+    margin-bottom: 2pt;
+  }
+  .stop-label .name {
+    font-size: 9pt; color: #5c1420; font-weight: bold;
+    white-space: nowrap; text-align: center;
+  }
+  .stop-label .name-zh {
+    font-family: 'Noto Serif TC','STSong','SimSun',serif;
+    font-size: 9pt; color: #7b1f2e; text-align: center;
+  }
+  .stop-label .time {
+    font-size: 9pt; color: #b8860b; font-weight: bold; text-align: center;
+  }
+  .stop-label .loc {
+    font-size: 9pt; color: #5c1420; font-weight: normal; text-align: center;
+  }
+  .stop-label .loc-zh {
+    font-family: 'Noto Serif TC','STSong','SimSun',serif;
+    font-size: 8pt; color: #7b1f2e; text-align: center;
+  }
+
+  /* Stop 1 - Cadman Plaza Park (lower-right / Brooklyn) */
+  .stop-1 { left: 79%; top: 77%; }
+  /* Stop 2 - Brooklyn Bridge (above bridge) */
+  .stop-2 { left: 27%; top: 60%; }
+
+  /* Distance badge */
+  .distance-badge {
+    position: absolute;
+    left: 42%; top: 90%;
+    background: rgba(253,248,240,0.90);
+    border: 1px solid #c8922a;
+    border-radius: 10pt;
+    padding: 2pt 10pt;
+    font-size: 7pt; color: #8a6a20; font-weight: bold;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<div class="poster">
+
+  <!-- ═══════════════════════════════════════════
+       BANNER HEADERS (inside decorative frames)
+       ═══════════════════════════════════════════ -->
+
+  <!-- Top banner: Gathering Point -->
+  <div class="banner-top">
+    <span class="en">Gathering Point</span>
+    <span class="en" style="color:#c8922a;"> · </span>
+    <span class="zh">集合地點</span>
+  </div>
+
+  <!-- Middle banner: Mindful Walk Route -->
+  <div class="banner-mid">
+    <span class="en">Mindful Walk Route</span>
+    <span class="en" style="color:#c8922a;"> · </span>
+    <span class="zh">正念步行路線</span>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       GATHERING POINT ANNOTATIONS
+       ═══════════════════════════════════════════ -->
+
+  <div class="pin-gather">
+    <div class="pin-label">MEETING HERE <span class="pin-label-zh">在此集合</span></div>
+    <div class="pin-icon"></div>
+  </div>
+  <div class="gather-star">★</div>
+
+  <!-- Info cards -->
+  <div class="gather-info">
+    <div class="gather-info-item">
+      <div class="label">Location</div>
+      <div class="value">Cadman Plaza Park</div>
+      <div class="value-zh">卡德曼廣場公園</div>
+    </div>
+    <div class="gather-info-item">
+      <div class="label">Nearby Subway</div>
+      <div class="subway-row">
+        <span class="subway-badge sub-blue">A</span>
+        <span class="subway-badge sub-blue">C</span>
+        <span class="subway-badge sub-green">4</span>
+        <span class="subway-badge sub-green">5</span>
+        <span class="subway-badge sub-orange">B</span>
+        <span class="subway-badge sub-orange">D</span>
+        <span class="subway-badge sub-orange">F</span>
+      </div>
+      <div class="subway-row">
+        <span class="subway-badge sub-yellow">N</span>
+        <span class="subway-badge sub-yellow">R</span>
+        <span class="subway-badge sub-yellow">W</span>
+        <span class="subway-badge sub-red">2</span>
+        <span class="subway-badge sub-red">3</span>
+      </div>
+    </div>
+    <div class="gather-info-item">
+      <div class="label">Arrival &amp; Music</div>
+      <div class="value compact">Suggested Arrival / 建議到達時間: </div>
+      <div class="value compact">9:00 – 9:30 AM</div>
+      <div class="value compact">Live mindful music / 現場正念音樂</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       ROUTE MAP ANNOTATIONS
+       lower-right (Brooklyn) → upper-left (City Hall)
+       ═══════════════════════════════════════════ -->
+
+  <!-- SVG route path: straight dashed arrows Stop 1 → Stop 2 → Stop 3 -->
+  <svg class="route-overlay" viewBox="0 0 100 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="3.5" refY="1.6" orient="auto">
+        <polygon points="0,0 6,2 0,3.5" fill="#5c1420"/>
+      </marker>
+    </defs>
+    <!-- Straight line: Stop 1 (lower-right) → Stop 2 (left) -->
+    <line x1="79" y1="35" x2="34" y2="12"
+          stroke="#5c1420" stroke-width="0.5"
+          stroke-dasharray="0.5,1" stroke-linecap="round" opacity="0.85"
+          marker-end="url(#arrowhead)"/>
+  </svg>
+
+  <!-- Distance badge -->
+  <div class="distance-badge">≈ 1.1 miles / 1.8 km</div>
+
+  <!-- Stop 1 - Cadman Plaza Park (lower-left / Brooklyn) -->
+  <div class="stop-marker stop-1">
+    <div class="stop-card">
+      <div class="stop-label">
+        <div class="time">9:30 AM</div>
+        <div class="name">Prayer &amp; Guidance</div>
+        <div class="name-zh">祈福 · 正念引導</div>
+        <div class="loc">Cadman Plaza Park</div>
+        <div class="loc-zh">卡德曼廣場公園</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stop 2 - Brooklyn Bridge (above bridge) -->
+  <div class="stop-marker stop-2">
+    <div class="stop-card">
+      <div class="stop-label">
+        <div class="time">11:00 AM</div>
+        <div class="name">Mindful Walk</div>
+        <div class="name-zh">正念步行</div>
+        <div class="loc">Brooklyn Bridge</div>
+        <div class="loc-zh">布魯克林大橋</div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+</body>
+</html>

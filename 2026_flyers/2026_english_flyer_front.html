@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A Mindful Walk for Wellness - 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sheet-width: 8.5in;
+    --sheet-height: 11in;
+    --print-safe-inset: 0.05in;
+  }
+
+  /* ── BROWSER PREVIEW STYLING ── */
+  body {
+    background-color: #1a1a1a;
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh; margin: 0; padding: 20px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+
+  /* ── EXACT POSTER DIMENSIONS (8.5x11) ── */
+  .poster {
+    width: var(--sheet-width); height: var(--sheet-height);
+    background-image: url('background_front.jpg');
+    background-size: 100% 100%;
+    background-position: center; background-repeat: no-repeat;
+    background-color: #fdf8f0;
+    position: relative; overflow: hidden; box-sizing: border-box;
+    box-shadow: 0px 15px 40px rgba(0,0,0,0.8);
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 0.6in 0.6in 0.3in 0.6in;
+    color: #2c1810;
+  }
+
+  /* ── PRINT STYLING ── */
+  @media print {
+    @page { size: letter portrait; margin: 0; }
+    html, body {
+      width: var(--sheet-width);
+      height: var(--sheet-height);
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      background: transparent !important;
+    }
+    body {
+      display: block !important;
+      min-height: auto !important;
+      position: relative !important;
+      font-size: 0 !important;
+      line-height: 0 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .poster {
+      width: calc(var(--sheet-width) - (var(--print-safe-inset) * 2)) !important;
+      height: calc(var(--sheet-height) - (var(--print-safe-inset) * 2)) !important;
+      margin: 0 !important;
+      position: absolute !important;
+      top: var(--print-safe-inset) !important;
+      left: var(--print-safe-inset) !important;
+      font-size: initial !important;
+      line-height: normal !important;
+      box-shadow: none !important;
+      overflow: hidden !important;
+      page-break-inside: avoid !important;
+      break-inside: avoid-page !important;
+      page-break-after: avoid !important;
+      break-after: avoid-page !important;
+    }
+    .event-datetime,
+    .subtitle-block {
+      text-shadow: none !important;
+    }
+  }
+
+  /* =========================================
+     TOP SECTION
+     ========================================= */
+  .top-section { text-align: center; z-index: 10; }
+  .org-name { font-size: 11pt; letter-spacing: 0.15em; color: #5c1420; font-weight: bold; text-transform: uppercase; margin-bottom: 12pt; display: flex; align-items: center; justify-content: center; gap: 10pt; }
+  .org-name img { height: 28pt; width: auto; object-fit: contain; }
+  .org-name-zh { font-family: 'Noto Serif TC','STSong','SimSun',serif; font-size: 11pt; letter-spacing: 0.2em; color: #7b1f2e; margin-bottom: 20pt; }
+
+  .title-divider { width: 2in; height: 1.5px; margin: 0 auto 22pt auto; background: #c8922a; }
+  .title-divider-bottom { width: 2in; height: 1.5px; margin: 14pt auto 22pt auto; background: #c8922a; }
+
+  .title-en {
+    font-size: 28pt; color: #5c1420; letter-spacing: 0.03em;
+    font-weight: bold; font-style: italic; line-height: 1.2; margin-bottom: 10pt;
+  }
+  .title-zh {
+    font-family: 'Noto Serif TC','STSong','SimSun',serif;
+    font-size: 20pt; color: #7b1f2e; letter-spacing: 0.2em;
+  }
+
+  /* =========================================
+     BOTTOM SECTION
+     ========================================= */
+  .bottom-section { z-index: 10; text-align: center; }
+
+  /* ── Date, Time & Route ── */
+  .event-datetime {
+    font-size: 15pt; color: #5c1420; font-weight: bold; letter-spacing: 0.02em;
+    margin-bottom: 18pt;
+    text-shadow: 0px 0px 10px rgba(255,255,255,0.9), 0px 0px 15px #fff;
+  }
+  .event-route {
+    font-size: 10pt; color: #7b1f2e; letter-spacing: 0.1em;
+    font-style: italic; margin-bottom: 14pt;
+    text-shadow: 0px 0px 10px rgba(255,255,255,0.9), 0px 0px 15px #fff;
+  }
+
+  /* ── Timeline Card ── */
+  .timeline-card {
+    background: rgba(253, 248, 240, 0.92);
+    backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+    border: 1px solid #c8922a;
+    border-radius: 12px;
+    padding: 12pt 15pt;
+    margin: 0 auto 8pt auto;
+    width: 95%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  /* ── Donation Callout ── */
+  .donation-callout {
+    background: rgba(253, 248, 240, 0.75);
+    border: 1px solid rgba(200, 146, 42, 0.4);
+    border-left: 3px solid rgba(200, 146, 42, 0.6);
+    border-radius: 8px;
+    padding: 9pt 15pt 10pt 15pt;
+    margin: 0;
+    width: auto;
+    text-align: left;
+    box-sizing: border-box;
+    text-shadow: none;
+    flex: 1;
+  }
+  .donation-heading {
+    font-size: 7.5pt; color: rgba(200, 146, 42, 0.8); font-weight: bold;
+    text-transform: uppercase; letter-spacing: 0.25em; margin-bottom: 4pt;
+  }
+  .donation-text {
+    font-size: 11pt; font-weight: bold; color: #5c1420; line-height: 1.5;
+  }
+  .donation-icon { color: #c8922a; margin-right: 5pt; font-size: 12pt; }
+
+  /* ── Co-organizers ── */
+  .coorg-section {
+    background: rgba(253, 248, 240, 0.92);
+    border: 1px solid rgba(200, 146, 42, 0.35);
+    border-radius: 8px;
+    padding: 7pt 10pt 8pt 10pt;
+    margin: 0 auto 0 auto;
+    width: 95%;
+    text-align: center;
+  }
+  .coorg-label {
+    font-size: 7.5pt; color: #b8860b;
+    text-transform: uppercase; letter-spacing: 0.18em;
+    font-weight: bold; margin-bottom: 8pt;
+  }
+  .coorg-label-zh {
+    font-family: 'Noto Serif TC','STSong','SimSun',serif;
+    letter-spacing: 0.1em; text-transform: none; font-size: 7.5pt;
+  }
+  .coorg-logos {
+    display: flex; align-items: center; justify-content: center;
+    gap: 22pt; flex-wrap: nowrap;
+  }
+  .coorg-logos img {
+    height: 28pt; width: auto;
+    object-fit: contain; opacity: 0.9;
+  }
+
+  /* ── Subtitle ── */
+  .subtitle-block {
+    font-size: 15pt; color: #5c1420; font-weight: bold;
+    letter-spacing: 0.04em; line-height: 1.45; text-align: center;
+    margin-bottom: 12pt;
+    text-shadow: 0px 0px 18px rgba(255,255,255,1), 0px 0px 25px #fff;
+  }
+
+  /* ── Schedule Grid (2-stop layout) ── */
+  .schedule-grid {
+    display: flex; align-items: flex-start; justify-content: center;
+  }
+  .schedule-item { flex: 1; text-align: center; padding: 0 10pt; }
+  .schedule-divider {
+    display: flex; align-items: center; padding-top: 4pt; flex-shrink: 0;
+    color: #c8922a; font-size: 20pt; line-height: 1;
+  }
+  .sched-time {
+    font-size: 12pt; color: #b8860b; font-weight: bold; letter-spacing: 0.06em;
+    margin-bottom: 7pt;
+  }
+  .sched-event {
+    font-size: 10.5pt; color: #5c1420; font-weight: bold; line-height: 1.45;
+    margin-bottom: 7pt;
+  }
+  .sched-loc {
+    font-size: 10.5pt; color: #7b1f2e; letter-spacing: 0.08em; font-style: italic;
+  }
+
+  .impact-row {
+    display: flex;
+    align-items: stretch;
+    gap: 10pt;
+    width: 95%;
+    margin: 0 auto 9pt auto;
+  }
+  .qr-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 0.92in;
+    flex-shrink: 0;
+    padding: 8pt 6pt;
+    background: rgba(253, 248, 240, 0.88);
+    border: 1px solid rgba(200, 146, 42, 0.45);
+    border-radius: 8px;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+  .qr-box {
+    width: 0.72in; height: 0.72in;
+    border-radius: 6px;
+    margin-bottom: 3pt;
+    overflow: hidden;
+    border: 1px solid rgba(200, 146, 42, 0.35);
+  }
+  .qr-box img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .qr-text {
+    font-size: 8pt; color: #5c1420; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em;
+    line-height: 1.1;
+  }
+  .footer-note {
+    text-align: center;
+    font-size: 8pt;
+    color: #5c1420;
+    font-weight: bold;
+    margin-top: 6pt;
+    background: transparent;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="poster">
+
+  <!-- TOP SECTION -->
+  <div class="top-section">
+    <div class="org-name"><img src="../co-organizer_logo/logo_wba.jpg" alt="WBA">Western Buddhist Association</div>
+
+    <div class="title-divider"></div>
+
+    <div class="title-en">A Mindful Walk for Wellness</div>
+
+    <div class="title-divider-bottom"></div>
+
+    <!-- Date & Time -->
+    <div class="event-datetime">Saturday, May 16, 2026 &nbsp;|&nbsp; 9:30 AM &ndash; 12:00 PM</div>
+
+    <!-- Schedule: 2 stops -->
+    <div class="schedule-grid">
+
+      <div class="schedule-item">
+        <div class="sched-event">Opening Blessing &amp; Mindfulness Guidance</div>
+        <div class="sched-loc">Cadman Plaza Park</div>
+      </div>
+
+      <div class="schedule-divider">&#8594;</div>
+
+      <div class="schedule-item">
+        <div class="sched-event">Mindful Walk Across the Brooklyn Bridge</div>
+        <div class="sched-loc">Brooklyn Bridge</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BOTTOM SECTION -->
+  <div class="bottom-section">
+
+    <!-- Subtitle -->
+    <div class="subtitle-block"><span style="font-size:11pt; font-weight:normal; font-style:normal; letter-spacing:0.08em;">Open to the public &bull; All are warmly welcome</span><br>Experience a guided mindful walk across the Brooklyn Bridge.</div>
+
+    <!-- Donation Statement + QR -->
+    <div class="impact-row">
+      <div class="donation-callout">
+        <div class="donation-heading">&#9825;&nbsp; Giving Back</div>
+        <div class="donation-text">For each completed walk, a $1 donation will be made to support individuals with autism and their families.</div>
+      </div>
+      <a class="qr-panel" href="https://www.eventbrite.com/e/a-mindful-walk-for-wellness-tickets-1988139236977?aff=oddtdtcreator" aria-label="Register on Eventbrite">
+        <div class="qr-box"><img src="../eventbrite_qr-code_english.jpg" alt="English QR code for Eventbrite registration"></div>
+        <div class="qr-text">Register</div>
+      </a>
+    </div>
+
+    <!-- Footer: address only -->
+    <div class="footer-note">
+      Fanyin Temple &middot; hello@wba-nyc.org &middot; 718-686-7606
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>

@@ -29,7 +29,7 @@
     position: relative; overflow: hidden; box-sizing: border-box;
     box-shadow: 0px 15px 40px rgba(0,0,0,0.8);
     display: flex; flex-direction: column; justify-content: space-between;
-    padding: 0.6in 0.6in 0.3in 0.6in;
+    padding: 0.52in 0.6in 0.3in 0.6in;
     color: #2c1810;
   }
 
@@ -70,7 +70,8 @@
       break-after: avoid-page !important;
     }
     .event-datetime,
-    .subtitle-block {
+    .subtitle-block,
+    .festival-kicker {
       text-shadow: none !important;
     }
   }
@@ -81,18 +82,32 @@
   .top-section { text-align: center; z-index: 10; }
   .org-name {
     font-family: 'Noto Serif TC', 'STSong', 'SimSun', serif;
-    font-size: 11pt; letter-spacing: 0.45em; color: #5c1420; font-weight: bold; margin-bottom: 12pt;
+    font-size: 11pt; letter-spacing: 0.45em; color: #5c1420; font-weight: bold; margin-bottom: 8pt;
     display: flex; align-items: center; justify-content: center; gap: 10pt;
   }
   .org-name img { height: 28pt; width: auto; object-fit: contain; }
+  .festival-kicker {
+    font-family: 'Noto Serif TC', 'STSong', 'SimSun', serif;
+    font-size: 9pt;
+    color: #b8860b;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    margin-bottom: 6pt;
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    text-shadow: 0px 0px 12px rgba(255,255,255,0.95), 0px 0px 18px #fff;
+  }
 
-  .title-divider { width: 2in; height: 1.5px; margin: 0 auto 22pt auto; background: #c8922a; }
-  .title-divider-bottom { width: 2in; height: 1.5px; margin: 14pt auto 22pt auto; background: #c8922a; }
+  .title-divider { width: 2in; height: 1.5px; margin: 0 auto 12pt auto; background: #c8922a; }
+  .title-divider-bottom { width: 2in; height: 1.5px; margin: 9pt auto 14pt auto; background: #c8922a; }
 
   .title-zh {
     font-family: 'Noto Serif TC', 'STSong', 'SimSun', serif;
-    font-size: 28pt; color: #5c1420; letter-spacing: 0.38em;
-    font-weight: bold; line-height: 1.2; margin-bottom: 10pt;
+    font-size: 26pt; color: #5c1420; letter-spacing: 0.3em;
+    font-weight: bold; line-height: 1.15; margin-bottom: 7pt;
   }
 
   /* =========================================
@@ -103,8 +118,8 @@
   /* ── Date & Time ── */
   .event-datetime {
     font-family: 'Noto Serif TC', 'STSong', 'SimSun', serif;
-    font-size: 14pt; color: #5c1420; font-weight: bold; letter-spacing: 0.18em;
-    margin-bottom: 18pt;
+    font-size: 13pt; color: #5c1420; font-weight: bold; letter-spacing: 0.14em;
+    margin-bottom: 12pt;
     text-shadow: 0px 0px 10px rgba(255,255,255,0.9), 0px 0px 15px #fff;
   }
 
@@ -126,7 +141,7 @@
     border: 1px solid rgba(200, 146, 42, 0.4);
     border-left: 3px solid rgba(200, 146, 42, 0.6);
     border-radius: 8px;
-    padding: 9pt 15pt 10pt 15pt;
+    padding: 8pt 12pt 8pt 12pt;
     margin: 0;
     width: auto;
     text-align: left;
@@ -136,12 +151,12 @@
   }
   .donation-heading {
     font-family: 'Noto Serif TC', 'STSong', 'SimSun', serif;
-    font-size: 7.5pt; color: rgba(200, 146, 42, 0.8); font-weight: bold;
-    letter-spacing: 0.4em; margin-bottom: 4pt;
+    font-size: 10pt; color: rgba(200, 146, 42, 0.8); font-weight: bold;
+    letter-spacing: 0.28em; margin-bottom: 9pt;
   }
   .donation-text {
     font-family: 'Noto Serif TC', 'STSong', 'SimSun', serif;
-    font-size: 11pt; font-weight: bold; color: #5c1420; line-height: 1.6; letter-spacing: 0.12em;
+    font-size: 10pt; font-weight: bold; color: #5c1420; line-height: 1.5; letter-spacing: 0.1em;
   }
   .donation-icon { color: #c8922a; margin-right: 5pt; font-size: 12pt; }
 
@@ -183,29 +198,29 @@
   .schedule-grid {
     display: flex; align-items: flex-start; justify-content: center;
   }
-  .schedule-item { flex: 1; text-align: center; padding: 0 10pt; }
+  .schedule-item { flex: 1; text-align: center; padding: 0 8pt; }
   .schedule-divider {
-    display: flex; align-items: center; padding-top: 4pt; flex-shrink: 0;
-    color: #c8922a; font-size: 20pt; line-height: 1;
+    display: flex; align-items: center; padding-top: 2pt; flex-shrink: 0;
+    color: #c8922a; font-size: 18pt; line-height: 1;
   }
   .sched-event {
     font-family: 'Noto Serif TC', 'STSong', 'SimSun', serif;
-    font-size: 10.5pt; color: #5c1420; font-weight: bold; line-height: 1.55;
-    letter-spacing: 0.15em; margin-bottom: 7pt;
+    font-size: 10pt; color: #5c1420; font-weight: bold; line-height: 1.45;
+    letter-spacing: 0.1em; margin-bottom: 4pt;
   }
   .sched-loc {
     font-family: 'Noto Serif TC', 'STSong', 'SimSun', serif;
-    font-size: 10.5pt; color: #7b1f2e; letter-spacing: 0.22em;
+    font-size: 9.5pt; color: #7b1f2e; letter-spacing: 0.16em;
   }
 
   .impact-row {
-    display: flex; align-items: stretch; gap: 10pt;
+    display: flex; align-items: stretch; gap: 8pt;
     width: 95%; margin: 0 auto 9pt auto;
   }
   .qr-panel {
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    width: 0.92in; flex-shrink: 0;
-    padding: 8pt 6pt;
+    width: 1.32in; flex-shrink: 0;
+    padding: 7pt 6pt 6pt 6pt;
     background: rgba(253, 248, 240, 0.88);
     border: 1px solid rgba(200, 146, 42, 0.45);
     border-radius: 8px;
@@ -213,9 +228,9 @@
     box-sizing: border-box;
   }
   .qr-box {
-    width: 0.72in; height: 0.72in;
+    width: 0.68in; height: 0.68in;
     border-radius: 6px;
-    margin-bottom: 3pt;
+    margin-bottom: 4pt;
     overflow: hidden;
     border: 1px solid rgba(200, 146, 42, 0.35);
   }
@@ -226,15 +241,15 @@
   }
   .qr-text {
     font-family: 'Noto Serif TC', 'STSong', 'SimSun', serif;
-    font-size: 8pt; color: #5c1420; font-weight: bold; letter-spacing: 0.12em;
-    line-height: 1.1;
+    font-size: 7pt; color: #5c1420; font-weight: bold; letter-spacing: 0.08em;
+    line-height: 1.08; text-align: center; white-space: nowrap;
   }
   .footer-note {
     text-align: center;
-    font-size: 8pt;
+    font-size: 7.5pt;
     color: #5c1420;
     font-weight: bold;
-    margin-top: 6pt;
+    margin-top: 5pt;
     background: transparent;
     font-family: 'Noto Serif TC','STSong','SimSun',serif;
   }
@@ -249,6 +264,8 @@
   <div class="top-section">
     <div class="org-name"><img src="../co-organizer_logo/logo_wba.jpg" alt="WBA">普陀山紐約梵音寺</div>
 
+    <div class="festival-kicker">第二屆紐約佛教文化節 · 延續去年逾千人參加的盛會</div>
+
     <div class="title-divider"></div>
 
     <div class="title-zh">正念步行 · 身心安樂</div>
@@ -256,7 +273,7 @@
     <div class="title-divider-bottom"></div>
 
     <!-- Date & Time -->
-    <div class="event-datetime">2026年5月16日（星期六）&nbsp;|&nbsp; 上午9:30 – 中午12:00</div>
+    <div class="event-datetime">2026年5月16日（星期六）&nbsp;|&nbsp; 上午9:00 – 中午12:00</div>
 
     <!-- Schedule: 2 stops -->
     <div class="schedule-grid">
@@ -289,8 +306,8 @@
         <div class="donation-text">每有一位參與者完成步行，主辦方將捐出1美元，用以支持自閉症患者及其家庭。</div>
       </div>
       <a class="qr-panel" href="https://www.eventbrite.com/e/1988287899631?aff=oddtdtcreator" aria-label="Eventbrite 報名">
-        <div class="qr-box"><img src="../eventbrite_qr-code_chinese.jpg" alt="中文 Eventbrite 報名二維碼"></div>
-        <div class="qr-text">掃碼報名</div>
+        <div class="qr-box"><img src="../QR_code/eventbrite_qr-code_chinese.jpg" alt="中文 Eventbrite 報名二維碼"></div>
+        <div class="qr-text">詳細信息｜掃碼報名</div>
       </a>
     </div>
 

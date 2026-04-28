@@ -68,6 +68,7 @@
     .pin-gather,
     .gather-star,
     .gather-info,
+    .social-qr-strip,
     .stop-marker,
     .distance-badge {
       z-index: 4 !important;
@@ -83,6 +84,7 @@
     }
     .gather-info-item,
     .stop-card,
+    .social-qr-card,
     .distance-badge {
       background: #fdf8f0 !important;
       border-color: #c8922a !important;
@@ -176,6 +178,9 @@
     display: flex; justify-content: space-between;
     gap: 6pt;
   }
+  .gather-info.two-up {
+    justify-content: center;
+  }
   .gather-info-item {
     flex: 1; text-align: center;
     background: rgba(253, 248, 240, 0.92);
@@ -186,6 +191,10 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     display: flex; flex-direction: column;
     justify-content: space-between; align-items: center;
+  }
+  .gather-info.two-up .gather-info-item {
+    flex: 0 0 calc(50% - 14pt);
+    max-width: 3in;
   }
   .gather-info-item .label {
     font-size: 9pt; color: #b8860b;
@@ -265,7 +274,7 @@
     font-size: 9pt; color: #7b1f2e; text-align: center;
   }
   .stop-label .time {
-    font-size: 9pt; color: #b8860b; font-weight: bold; text-align: center;
+    font-size: 15pt; color: #b8860b; font-weight: bold; text-align: center; margin-bottom: 4pt;
   }
   .stop-label .loc {
     font-size: 9pt; color: #5c1420; font-weight: normal; text-align: center;
@@ -278,18 +287,64 @@
   /* Stop 1 - Cadman Plaza Park (lower-right / Brooklyn) */
   .stop-1 { left: 79%; top: 77%; }
   /* Stop 2 - Brooklyn Bridge (above bridge) */
-  .stop-2 { left: 27%; top: 60%; }
+  .stop-2 { left: 25%; top: 60%; }
 
   /* Distance badge */
   .distance-badge {
     position: absolute;
-    left: 42%; top: 90%;
+    left: 42%; top: 83%;
     background: rgba(253,248,240,0.90);
     border: 1px solid #c8922a;
     border-radius: 10pt;
     padding: 2pt 10pt;
     font-size: 7pt; color: #8a6a20; font-weight: bold;
     white-space: nowrap;
+  }
+
+  .social-qr-strip {
+    position: absolute;
+    left: 14%;
+    right: 14%;
+    bottom: 0.26in;
+    display: flex;
+    justify-content: center;
+    gap: 24pt;
+  }
+  .social-qr-card {
+    width: 0.88in;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
+  .social-qr-image {
+    width: 0.68in;
+    height: 0.68in;
+    border-radius: 0;
+    overflow: hidden;
+    border: none;
+    margin-bottom: 3pt;
+  }
+  .social-qr-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .social-qr-label {
+    font-size: 6.8pt;
+    color: #5c1420;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-align: center;
   }
 </style>
 </head>
@@ -326,30 +381,11 @@
   <div class="gather-star">★</div>
 
   <!-- Info cards -->
-  <div class="gather-info">
+  <div class="gather-info two-up">
     <div class="gather-info-item">
       <div class="label">Location</div>
       <div class="value">Cadman Plaza Park</div>
       <div class="value-zh">卡德曼廣場公園</div>
-    </div>
-    <div class="gather-info-item">
-      <div class="label">Nearby Subway</div>
-      <div class="subway-row">
-        <span class="subway-badge sub-blue">A</span>
-        <span class="subway-badge sub-blue">C</span>
-        <span class="subway-badge sub-green">4</span>
-        <span class="subway-badge sub-green">5</span>
-        <span class="subway-badge sub-orange">B</span>
-        <span class="subway-badge sub-orange">D</span>
-        <span class="subway-badge sub-orange">F</span>
-      </div>
-      <div class="subway-row">
-        <span class="subway-badge sub-yellow">N</span>
-        <span class="subway-badge sub-yellow">R</span>
-        <span class="subway-badge sub-yellow">W</span>
-        <span class="subway-badge sub-red">2</span>
-        <span class="subway-badge sub-red">3</span>
-      </div>
     </div>
     <div class="gather-info-item">
       <div class="label">Arrival &amp; Music</div>
@@ -398,13 +434,28 @@
   <div class="stop-marker stop-2">
     <div class="stop-card">
       <div class="stop-label">
-        <div class="time">11:00 AM</div>
+        <div class="time">10:30 AM</div>
         <div class="name">Mindful Walk</div>
         <div class="name-zh">正念步行</div>
         <div class="loc">Brooklyn Bridge</div>
         <div class="loc-zh">布魯克林大橋</div>
       </div>
     </div>
+  </div>
+
+  <div class="social-qr-strip">
+    <a class="social-qr-card" href="https://wba-nyc.org" aria-label="Visit the WBA website">
+      <div class="social-qr-image"><img src="../QR_code/website_qr-code.jpg" alt="QR code for the WBA website"></div>
+      <div class="social-qr-label">Website</div>
+    </a>
+    <a class="social-qr-card" href="https://www.facebook.com/people/New-York-Buddhist-Cultural-Festival-%E7%BA%BD%E7%BA%A6%E4%BD%9B%E6%95%99%E6%96%87%E5%8C%96%E8%8A%82/61574247850411/" aria-label="Visit the New York Buddhist Cultural Festival Facebook page">
+      <div class="social-qr-image"><img src="../QR_code/facebook_qr-code.jpg" alt="QR code for the festival Facebook page"></div>
+      <div class="social-qr-label">Facebook</div>
+    </a>
+    <a class="social-qr-card" href="https://www.instagram.com/nybuddhistfestival/" aria-label="Visit the festival Instagram page">
+      <div class="social-qr-image"><img src="../QR_code/instagram_qr-code.jpg" alt="QR code for the festival Instagram page"></div>
+      <div class="social-qr-label">Instagram</div>
+    </a>
   </div>
 
 

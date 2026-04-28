@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>邀请函 - 正念安康行 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* ── BROWSER PREVIEW ── */
+  body {
+    background-color: #1a1a1a;
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh; margin: 0; padding: 20px;
+    font-family: 'Noto Serif SC', 'Noto Serif TC', 'STSong', 'SimSun', 'Georgia', serif;
+  }
+
+  /* ── 8.5 × 11 LETTER ── */
+  .letter {
+    width: 8.5in; height: 11in;
+    background-image: url('invitation_letter_background.jpg');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #fdfaf4;
+    position: relative; overflow: hidden; box-sizing: border-box;
+    box-shadow: 0px 12px 35px rgba(0,0,0,0.7);
+    display: flex; flex-direction: column;
+    padding: 0.35in 0.7in 0.3in 0.7in;
+    color: #2c1810;
+    border: 1.5px solid #c8922a;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    @page { size: letter portrait; margin: 0; }
+    body { background-color: transparent; display: block; padding: 0; min-height: auto; }
+    .letter { box-shadow: none; margin: 0; }
+  }
+
+  /* =========================================
+     LETTERHEAD
+     ========================================= */
+  .letterhead {
+    text-align: center;
+    padding-bottom: 6pt;
+    border-bottom: 1.5px solid #c8922a;
+    margin-bottom: 10pt;
+    position: relative; z-index: 10;
+  }
+  .org-name-zh {
+    font-family: 'Noto Serif SC', 'Noto Serif TC', 'STSong', 'SimSun', serif;
+    font-size: 13pt; letter-spacing: 0.2em; color: #5c1420;
+    font-weight: bold; margin-bottom: 2pt;
+  }
+  .org-name-en {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 9pt; letter-spacing: 0.1em; color: #7b1f2e;
+    margin-bottom: 6pt;
+  }
+  .org-contact {
+    font-size: 8pt; color: #555; letter-spacing: 0.03em; line-height: 1.5;
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+  .org-contact a { color: #555; text-decoration: none; }
+
+  /* =========================================
+     LETTER BODY
+     ========================================= */
+  .letter-body {
+    flex: 1; position: relative; z-index: 10;
+    display: flex; flex-direction: column;
+  }
+
+  .date-line {
+    font-size: 10.5pt; color: #2c1810; margin-bottom: 14pt;
+    font-family: 'Noto Serif SC', 'Noto Serif TC', 'STSong', 'SimSun', serif;
+  }
+
+  .salutation {
+    font-size: 12pt; color: #2c1810; margin-bottom: 14pt;
+    font-family: 'Noto Serif SC', 'Noto Serif TC', 'STSong', 'SimSun', serif;
+  }
+
+  .body-text {
+    font-size: 12pt; color: #2c1810; line-height: 1.85;
+    text-align: justify; margin-bottom: 10pt;
+    font-family: 'Noto Serif SC', 'Noto Serif TC', 'STSong', 'SimSun', serif;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Key info highlight ── */
+  .key { font-weight: bold; color: #5c1420; }
+
+  /* ── RSVP Block ── */
+  .rsvp-block {
+    background: rgba(92, 20, 32, 0.04);
+    border: 1px solid rgba(200, 146, 42, 0.35);
+    border-radius: 4px;
+    padding: 8pt 14pt;
+    margin: 6pt 0 10pt 0;
+    font-size: 11pt; line-height: 1.75;
+    color: #2c1810;
+    font-family: 'Noto Serif SC', 'Noto Serif TC', 'STSong', 'SimSun', serif;
+  }
+  .rsvp-block strong { color: #5c1420; }
+  .rsvp-block a { color: #5c1420; text-decoration: none; }
+
+  /* ── Closing & Signature ── */
+  .closing-text {
+    font-size: 12pt; color: #2c1810; line-height: 1.85;
+    margin-bottom: 4pt;
+    font-family: 'Noto Serif SC', 'Noto Serif TC', 'STSong', 'SimSun', serif;
+  }
+  .sign-off {
+    font-size: 12pt; color: #2c1810; margin-top: 10pt; margin-bottom: 4pt;
+    font-family: 'Noto Serif SC', 'Noto Serif TC', 'STSong', 'SimSun', serif;
+  }
+  .signature-block { line-height: 1.75; margin-top: 26pt; }
+  .sig-name {
+    font-size: 12pt; color: #5c1420; font-weight: bold;
+    font-family: 'Noto Serif SC', 'Noto Serif TC', 'STSong', 'SimSun', serif;
+  }
+  .sig-title {
+    font-size: 10.5pt; color: #2c1810;
+    font-family: 'Noto Serif SC', 'Noto Serif TC', 'STSong', 'SimSun', serif;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="letter">
+
+  <!-- ═══════════ LETTERHEAD ═══════════ -->
+  <div class="letterhead">
+    <div class="org-name-zh">普陀山纽约梵音寺</div>
+    <div class="org-name-en">Western Buddhist Association &nbsp;&middot;&nbsp; Fanyin Temple</div>
+    <div class="org-contact">
+      5601 Fort Hamilton Pkwy, Brooklyn, NY 11219 &nbsp;&middot;&nbsp; <a href="https://wba-nyc.org">wba-nyc.org</a>
+    </div>
+  </div>
+
+  <!-- ═══════════ LETTER BODY ═══════════ -->
+  <div class="letter-body">
+
+    <div class="salutation">尊敬的____________________：</div>
+
+    <!-- Paragraph 1 -->
+    <div class="body-text">
+      谨代表普陀山纽约梵音寺，诚挚邀请您出席将于
+      <span class="key">2026年5月16日（星期六）上午9:30至中午12:00</span>
+      举办的 <span class="key">&#8220;A Mindful Walk for Wellness &nbsp;正念步行&#8221;</span> 活动。
+      活动将自布鲁克林 <span class="key">卡德曼广场公园（Cadman Plaza Park）</span>
+      开始，并以正念走過 <span class="key">布鲁克林大桥</span>。
+    </div>
+
+    <!-- Paragraph 2 -->
+    <div class="body-text">
+      普陀山紐約梵音寺成立于1998年，被公认为布鲁克林的第一座佛教寺院。本次公益活动得到 <span class="key">Autism Speaks、LiveOn NY、Project Ready 及 Caringkind</span>
+      等機構的全力支持，预计将有约 <span class="key">1,000名参与者</span>。
+    </div>
+
+    <!-- Paragraph 3 -->
+    <div class="body-text">
+      活动选在纽约極具代表性的地方举行，所传达的是一个简单却重要的理念：当一个人的内心更加平静清明，便更有能力关怀他人、并将慈悲真正落实为行动。以此精神，本次活动每有一位参与者完成全程步行，主办方将捐出
+      <span class="key">1美元</span>，用于支持自闭症患者及其家庭。
+    </div>
+
+    <!-- Paragraph 4 -->
+    <div class="body-text">
+      我们诚挚期盼您的莅临，并荣幸邀请您于上午约 9:40 登台作简短致辞。敬请致辞围绕社区身心健康主题，并保持非党派。您的出席与支持，将有助于彰显本次活动所倡导的正念安心和慈悲利他理念，并鼓舞所有参与者。
+    </div>
+
+    <!-- Paragraph 5 -->
+    <div class="body-text">
+      若您届时无法亲自出席，我们也十分欢迎贵办公室或贵机构委派代表参加。
+    </div>
+
+    <!-- Closing -->
+    <div class="closing-text">
+      衷心感谢您的拨冗垂阅与支持，期待有缘恭迎您的莅临。
+    </div>
+
+    <div class="sign-off">此致<br>敬礼</div>
+
+    <!-- Signature Block -->
+    <div class="signature-block">
+      <div class="sig-name">常宽法师</div>
+      <div class="sig-title">Western Buddhist Association 普陀山紐約梵音寺 住持</div>
+      <div class="sig-title">Forum on Faith 顾问委员会成员</div>
+      <div class="date-line">2026年4月27日</div>
+    </div>
+
+    <!-- RSVP Block -->
+    <div class="rsvp-block">
+      <strong>敬请于2026年5月9日前回复是否出席</strong><br>
+      活动联系人：Virgil Zhang<br>
+      邮箱：<a href="mailto:virgilzhangcher@gmail.com">virgilzhangcher@gmail.com</a>
+      &nbsp;&middot;&nbsp; 电话：(530) 750-9890
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>

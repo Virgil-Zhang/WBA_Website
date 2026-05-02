@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>正念步行 · 身心安樂 — 2026 拉網展架</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --banner-width: 33in;
+    --banner-height: 81in;
+  }
+
+  body {
+    background-color: #1a1a1a;
+    display: flex; justify-content: center; align-items: flex-start;
+    min-height: 100vh; margin: 0; padding: 20px;
+    font-family: 'Noto Serif TC', 'STSong', 'SimSun', serif;
+  }
+
+  .banner {
+    width: var(--banner-width);
+    height: var(--banner-height);
+    background-color: #f8f1de;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    box-shadow: 0px 20px 60px rgba(0,0,0,0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-shrink: 0;
+    padding: 2.5in 1.8in 1.5in 1.8in;
+    color: #2c1810;
+  }
+
+  /* ── BROWSER PREVIEW: scale banner to ~8.5in wide (same as flyer) ── */
+  @media screen {
+    .banner-scaler {
+      width: 817px;      /* 33in × 96dpi × 0.258 */
+      height: 2006px;    /* 81in × 96dpi × 0.258 */
+      overflow: hidden;
+      box-shadow: 0px 15px 40px rgba(0,0,0,0.8);
+    }
+    .banner {
+      transform: scale(0.258);
+      transform-origin: top left;
+      box-shadow: none;
+    }
+  }
+
+  @media print {
+    @page { size: 33in 81in; margin: 0; }
+    html, body {
+      width: var(--banner-width);
+      height: var(--banner-height);
+      margin: 0 !important; padding: 0 !important;
+      background: transparent !important;
+    }
+    body {
+      display: block !important; min-height: auto !important;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    .banner-scaler { display: contents; }
+    .banner {
+      transform: none !important;
+      width: var(--banner-width) !important;
+      height: var(--banner-height) !important;
+      margin: 0 !important; position: absolute !important;
+      top: 0 !important; left: 0 !important;
+      box-shadow: none !important;
+      font-size: initial !important; line-height: normal !important;
+    }
+  }
+
+  /* =========================================
+     TOP SECTION
+     ========================================= */
+  .top-section { text-align: center; z-index: 20; }
+
+  .org-name {
+    font-size: 55pt;
+    letter-spacing: 0.4em;
+    color: #5c1420;
+    font-weight: bold;
+    margin-bottom: 0.45in;
+    display: flex; align-items: center; justify-content: center; gap: 0.3in;
+    text-shadow: 0px 0px 25px rgba(255,255,255,0.95), 0px 0px 40px #fff;
+  }
+  .org-name img { height: 145pt; width: auto; object-fit: contain; }
+
+  .festival-kicker {
+    font-size: 40pt;
+    color: #b8860b;
+    font-weight: bold;
+    letter-spacing: 0.14em;
+    margin-bottom: 0.5in;
+    text-shadow: 0px 0px 20px rgba(255,255,255,0.95), 0px 0px 30px #fff;
+  }
+
+  .title-divider        { width: 10in; height: 3px; margin: 0 auto 0.6in auto;       background: #c8922a; }
+  .title-divider-bottom { width: 10in; height: 3px; margin: 0.45in auto 0.6in auto;  background: #c8922a; }
+
+  .title-zh {
+    font-size: 150pt;
+    color: #5c1420;
+    letter-spacing: 0.25em;
+    font-weight: bold;
+    line-height: 1.1;
+    text-shadow: 0px 0px 35px rgba(255,255,255,0.8), 0px 0px 55px #fff;
+  }
+
+  .event-datetime {
+    font-size: 60pt;
+    color: #5c1420;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.45in;
+    text-shadow: 0px 0px 20px rgba(255,255,255,0.9), 0px 0px 30px #fff;
+  }
+
+  .schedule-grid { display: flex; align-items: flex-start; justify-content: center; }
+  .schedule-item { flex: 1; text-align: center; padding: 0 0.5in; }
+  .schedule-divider {
+    display: flex; align-items: center; padding-top: 0.05in; flex-shrink: 0;
+    color: #c8922a; font-size: 78pt; line-height: 1;
+  }
+  .sched-event {
+    font-size: 50pt; color: #5c1420; font-weight: bold;
+    line-height: 1.4; letter-spacing: 0.12em; margin-bottom: 0.18in;
+    text-shadow: 0px 0px 18px rgba(255,255,255,0.9), 0px 0px 28px #fff;
+  }
+  .sched-loc {
+    font-size: 44pt; color: #7b1f2e; letter-spacing: 0.18em;
+    text-shadow: 0px 0px 15px rgba(255,255,255,0.9), 0px 0px 25px #fff;
+  }
+
+  /* =========================================
+     IMAGE MIDDLE
+     ========================================= */
+  .image-middle {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .image-middle img {
+    width: 28in;   /* ← 改这个数字控制图片大小 */
+    height: auto;
+    display: block;
+  }
+
+  /* =========================================
+     BOTTOM SECTION
+     ========================================= */
+  .bottom-section {
+    z-index: 10;
+    text-align: center;
+    background: rgba(253, 248, 240, 0.94);
+    border-radius: 20px;
+    border: 2px solid rgba(200, 146, 42, 0.5);
+    padding: 0.7in 1.2in 0.6in 1.2in;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+    flex-shrink: 0;
+  }
+
+  .subtitle-block {
+    font-size: 60pt;
+    color: #5c1420;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    line-height: 1.55;
+    margin-bottom: 0.5in;
+    margin-top: 0.4in;
+    text-shadow: 0px 0px 20px rgba(255,255,255,0.9), 0px 0px 30px #fff;
+  }
+  .subtitle-light {
+    font-weight: normal;
+    font-size: 50pt;
+    letter-spacing: 0.24em;
+    display: block;
+    margin-bottom: 0.1in;
+  }
+
+  .wba-intro-box {
+    background: rgba(253, 248, 240, 0.6);
+    border: 1px solid rgba(200, 146, 42, 0.35);
+    border-radius: 14px;
+    padding: 0.7in 1in;
+    margin-bottom: 0.65in;
+  }
+  .wba-intro-heading {
+    font-size: 40pt;
+    color: #b8860b;
+    font-weight: bold;
+    letter-spacing: 0.3em;
+    margin-bottom: 0.38in;
+  }
+  .wba-intro-text {
+    font-size: 44pt;
+    color: #5c1420;
+    line-height: 1.85;
+    letter-spacing: 0.1em;
+    text-align: justify;
+  }
+
+  .section-divider {
+    width: 100%; height: 2px;
+    background: linear-gradient(to right, transparent, #c8922a 15%, #c8922a 85%, transparent);
+    margin: 0.4in 0; opacity: 0.7;
+  }
+
+  /* Social QR row */
+  .social-qr-row {
+    display: flex; align-items: stretch; justify-content: center; gap: 0.5in;
+  }
+  .qr-col {
+    flex: 1;
+    display: flex; flex-direction: column; align-items: center;
+    background: rgba(253, 248, 240, 0.72);
+    border: 1px solid rgba(200, 146, 42, 0.35);
+    border-radius: 14px;
+    padding: 0.4in 0.25in;
+  }
+  .qr-platform-label {
+    font-size: 28pt;
+    color: #b8860b;
+    font-weight: bold;
+    letter-spacing: 0.28em;
+    margin-bottom: 0.2in;
+  }
+  .qr-img-box {
+    width: 3.5in; height: 3.5in;
+    border-radius: 10px; overflow: hidden;
+    border: 2px solid rgba(200, 146, 42, 0.35);
+    margin-bottom: 0.18in;
+  }
+  .qr-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .qr-name-label {
+    font-size: 28pt;
+    color: #5c1420;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    line-height: 1.45;
+    text-align: center;
+  }
+
+  /* Donation row */
+  .donation-row { display: flex; align-items: stretch; gap: 0.5in; }
+  .donation-panel {
+    flex: 1;
+    display: flex; flex-direction: column; align-items: center;
+    background: rgba(253, 248, 240, 0.72);
+    border: 1px solid rgba(200, 146, 42, 0.35);
+    border-left: 4px solid rgba(200, 146, 42, 0.65);
+    border-radius: 14px;
+    padding: 0.45in 0.5in;
+    text-align: center;
+  }
+  .donation-panel-header {
+    font-size: 32pt;
+    color: #b8860b;
+    font-weight: bold;
+    letter-spacing: 0.28em;
+    margin-bottom: 0.2in;
+  }
+  .donation-panel-logo {
+    height: 0.85in; width: auto; object-fit: contain;
+    margin-bottom: 0.18in; opacity: 0.9;
+  }
+  .donation-qr-box {
+    width: 3.5in; height: 3.5in;
+    border-radius: 10px; overflow: hidden;
+    border: 2px solid rgba(200, 146, 42, 0.35);
+    margin-bottom: 0.2in;
+  }
+  .donation-qr-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .donation-panel-text {
+    font-size: 34pt; color: #5c1420; font-weight: bold;
+    line-height: 1.6; letter-spacing: 0.12em;
+  }
+  .donation-panel-subtext {
+    font-size: 30pt; color: #7b1f2e;
+    line-height: 1.65; letter-spacing: 0.07em;
+    margin-top: 0.15in;
+  }
+
+  .footer-note {
+    font-size: 34pt; color: #5c1420; font-weight: bold;
+    letter-spacing: 0.18em; margin-top: 0.65in;
+  }
+</style>
+</head>
+<body>
+
+<div class="banner-scaler">
+<div class="banner">
+
+  <!-- TOP SECTION -->
+  <div class="top-section">
+
+    <div class="org-name">
+      <img src="../co-organizer_logo/logo_wba.jpg" alt="WBA">
+      普陀山紐約梵音寺
+    </div>
+
+    <div class="festival-kicker">第二屆紐約佛教文化節 · 延續去年逾千人參加的盛會</div>
+
+    <div class="title-divider"></div>
+
+    <div class="title-zh">正念步行 · 身心安樂</div>
+
+    <div class="title-divider-bottom"></div>
+
+    <div class="event-datetime">2026年5月16日（星期六）&nbsp;|&nbsp; 上午9:00 – 中午12:00</div>
+
+    <div class="schedule-grid">
+      <div class="schedule-item">
+        <div class="sched-event">開幕祈福與正念引導</div>
+        <div class="sched-loc">卡德曼廣場公園</div>
+      </div>
+      <div class="schedule-divider">&#8594;</div>
+      <div class="schedule-item">
+        <div class="sched-event">一起以正念走過布魯克林大橋</div>
+        <div class="sched-loc">布魯克林大橋</div>
+      </div>
+    </div>
+
+    <div class="subtitle-block">
+      <span class="subtitle-light">免費公開活動 · 歡迎大家參加</span>
+      體驗一場穿越布魯克林大橋的正念行走。
+    </div>
+
+  </div>
+
+  <!-- IMAGE MIDDLE -->
+  <div class="image-middle">
+    <img src="bridge.jpg" alt="">
+  </div>
+
+  <!-- BOTTOM SECTION -->
+  <div class="bottom-section">
+
+    <div class="wba-intro-box">
+      <div class="wba-intro-heading">關於西方佛教協會</div>
+      <div class="wba-intro-text">
+        西方佛教協會（WBA）是一家成立於1998年的非營利性佛教組織，扎根紐約市。協會秉承中國佛教傳統，經營梵音寺——紐約市中心一處供修行、文化慶典與社區服務的精神聖地。我們傳播佛陀教義、促進宗教間對話，並以慈悲之心服務社區。
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- Social QR codes -->
+    <div class="social-qr-row">
+      <div class="qr-col">
+        <div class="qr-platform-label">官方網站</div>
+        <div class="qr-img-box">
+          <img src="../QR_code/website_qr-code.jpg" alt="WBA官方網站">
+        </div>
+      </div>
+      <div class="qr-col">
+        <div class="qr-platform-label">Facebook</div>
+        <div class="qr-img-box">
+          <img src="../QR_code/facebook_qr-code.jpg" alt="Facebook">
+        </div>
+        <div class="qr-name-label">New York Buddhist Cultural Festival<br>紐約佛教文化節</div>
+      </div>
+      <div class="qr-col">
+        <div class="qr-platform-label">Instagram</div>
+        <div class="qr-img-box">
+          <img src="../QR_code/instagram_qr-code.jpg" alt="Instagram">
+        </div>
+        <div class="qr-name-label">@nybuddhistfestival</div>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- Donation QR codes -->
+    <div class="donation-row">
+      <div class="donation-panel">
+        <div class="donation-panel-header">&#9825;&nbsp; 公益支持</div>
+        <img class="donation-panel-logo" src="../co-organizer_logo/logo_autism_speaks.png" alt="Autism Speaks">
+        <div class="donation-qr-box">
+          <img src="../QR_code/autismspeaks_qr-code.png" alt="Autism Speaks">
+        </div>
+        <div class="donation-panel-text">協辦單位</div>
+        <div class="donation-panel-subtext">
+          每有一位參與者完成步行<br>
+          主辦方將捐出1美元<br>
+          用以支持自閉症患者及其家庭
+        </div>
+      </div>
+      <div class="donation-panel">
+        <div class="donation-panel-header">&#9825;&nbsp; 捐款支持 WBA</div>
+        <div class="donation-qr-box">
+          <img src="../QR_code/wba_zelle_qr-code.png" alt="WBA Zelle 捐款">
+        </div>
+        <div class="donation-panel-text">掃碼捐款</div>
+        <div class="donation-panel-subtext">
+          Zelle: fanyintempleusa@gmail.com
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      普陀山紐約梵音寺 &middot; hello@wba-nyc.org &middot; 718-686-7606
+    </div>
+
+  </div>
+
+</div>
+</div>
+</body>
+</html>

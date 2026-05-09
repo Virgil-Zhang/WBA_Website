@@ -52,7 +52,7 @@
   .right-col {
     flex: 1;
     display: flex; flex-direction: column;
-    padding: 0.35in 0.18in 0.15in 0.18in;
+    padding: 0.55in 0.18in 0.15in 0.18in;
   }
 
   /* ===== LEFT COLUMN ===== */
@@ -64,9 +64,8 @@
   .left-col .main-title-proof,
   .left-col .event-datetime,
   .left-col .event-subtitle,
-  .left-col .schedule-heading,
-  .left-col .sched-line,
-  .left-col .sched-loc {
+  .left-col .section-heading,
+  .left-col .mindfulness-text {
     text-shadow: 0 0 10px rgba(255,255,255,0.95), 0 0 20px #fff, 0 0 35px rgba(255,255,255,0.7);
   }
 
@@ -85,16 +84,18 @@
   }
 
   .title-divider {
-    height: 1.5px; background: #c8922a; margin-bottom: 8pt;
-    opacity: 0.85;
+    height: 1.5px;
+    background: linear-gradient(to right, transparent, #c8922a 20%, #c8922a 80%, transparent);
+    margin-bottom: 8pt; opacity: 0.85;
   }
   .title-divider-bottom {
-    height: 1.5px; background: #c8922a; margin-bottom: 7pt;
-    opacity: 0.85;
+    height: 1.5px;
+    background: linear-gradient(to right, transparent, #c8922a 20%, #c8922a 80%, transparent);
+    margin-bottom: 7pt; opacity: 0.85;
   }
 
   .main-title {
-    font-size: 23pt; color: #5c1420; letter-spacing: 0.04em;
+    font-size: 19pt; color: #5c1420; letter-spacing: 0.04em;
     font-weight: bold; font-style: italic; line-height: 1.15; margin-bottom: 3pt;
   }
   .main-title-proof {
@@ -111,37 +112,43 @@
     font-style: italic;
   }
 
-  /* Schedule pushed to bottom */
-  .left-schedule { margin-top: auto; }
+  /* Mindfulness pushed to bottom */
+  .left-bottom {
+    margin-top: auto;
+    margin-bottom: 18pt;
+    padding-left: 0.2in;
+    margin-right: -0.18in;
+  }
 
   .schedule-heading {
     font-size: 9pt; color: #b8860b; font-weight: bold; text-transform: uppercase;
-    letter-spacing: 0.25em; margin-bottom: 6pt;
+    letter-spacing: 0.25em; margin-bottom: 6pt; text-align: center;
   }
 
-  .schedule-item {
-    padding: 5pt 0;
-    border-top: 1px solid rgba(200,146,42,0.35);
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: center;
+    row-gap: 4pt;
+    column-gap: 14pt;
   }
-  .schedule-item:last-child {
-    border-bottom: 1px solid rgba(200,146,42,0.35);
-  }
+  .schedule-item { display: contents; }
 
   .sched-line {
     font-size: 9pt; color: #5c1420; font-weight: bold;
-    letter-spacing: 0.04em; line-height: 1.45;
+    letter-spacing: 0.04em; line-height: 1.45; text-align: left;
   }
   .sched-loc {
     font-size: 7.5pt; color: #7b1f2e; letter-spacing: 0.04em;
-    margin-top: 1pt; font-style: italic;
+    font-style: italic; align-self: center; text-align: left;
   }
 
   /* ===== RIGHT COLUMN ===== */
 
   /* White glow for readability over photo background */
-  .right-col .section-heading,
-  .right-col .mindfulness-text,
-  .right-col .video-qr-caption,
+  .right-col .schedule-heading,
+  .right-col .sched-line,
+  .right-col .sched-loc,
   .right-col .wba-intro-heading,
   .right-col .wba-intro-text,
   .right-col .qr-platform-label,
@@ -159,50 +166,32 @@
   }
 
   .mindfulness-section {
-    margin-bottom: 9pt;
+    margin-bottom: 0;
     flex-shrink: 0;
   }
 
   .mindfulness-text {
-    font-size: 8pt; color: #5c1420; line-height: 1.8;
-    letter-spacing: 0.02em; text-align: justify;
-    margin-bottom: 7pt;
+    font-size: 7pt; color: #5c1420; line-height: 1.8;
+    letter-spacing: 0.01em; text-align: justify;
   }
 
-  .video-qr-row {
-    display: flex; align-items: center; gap: 8pt;
-  }
-  .video-qr-placeholder {
-    width: 0.78in; height: 0.78in; flex-shrink: 0;
-    border: 1.5px dashed #b8860b; border-radius: 6px;
-    background: rgba(253,248,240,0.8);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .video-qr-placeholder span {
-    font-size: 6pt; color: #b8860b; text-align: center; line-height: 1.45;
-  }
-  .video-qr-caption {
-    font-size: 7.5pt; color: #5c1420; letter-spacing: 0.04em;
-    line-height: 1.6; font-weight: bold;
-  }
-
-  /* Single divider between mindfulness and WBA section */
+  /* Divider between schedule and WBA section */
   .section-divider {
     height: 1px;
     background: linear-gradient(to right, transparent, #c8922a 20%, #c8922a 80%, transparent);
-    margin: 7pt 0; opacity: 0.55; flex-shrink: 0;
+    margin: 32pt 0 14pt 0; opacity: 0.55; flex-shrink: 0;
   }
 
-  .wba-section { flex: 1; display: flex; flex-direction: column; }
+  .wba-section { flex: 1; display: flex; flex-direction: column; padding-top: 22pt; }
 
   .wba-intro-heading {
-    font-size: 7.5pt; color: #b8860b; font-weight: bold;
-    text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 4pt;
+    font-size: 8pt; color: #b8860b; font-weight: bold;
+    text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 5pt;
   }
   .wba-intro-text {
-    font-size: 7.5pt; color: #5c1420; line-height: 1.75;
+    font-size: 8pt; color: #5c1420; line-height: 1.8;
     letter-spacing: 0.01em; text-align: justify;
-    margin-bottom: 8pt;
+    margin-bottom: 10pt;
   }
 
   .social-qr-row {
@@ -253,7 +242,7 @@
   .footer-note {
     font-size: 7pt; color: #5c1420; font-weight: bold;
     letter-spacing: 0.1em; text-align: center; margin-top: auto;
-    padding-top: 4pt;
+    padding-top: 4pt; line-height: 2;
   }
 </style>
 </head>
@@ -278,26 +267,13 @@
     <div class="event-datetime">Saturday, May 16, 2026 &nbsp;|&nbsp; 9:00 AM &ndash; 12:00 PM</div>
     <div class="event-subtitle">Free public event &bull; All are warmly welcome &bull; ~1.1-mile walk across Brooklyn Bridge</div>
 
-    <!-- Schedule pushed to bottom -->
-    <div class="left-schedule">
-      <div class="schedule-heading">Today's Schedule</div>
-
-      <div class="schedule-item">
-        <div class="sched-line">9:00 – 9:30 &nbsp;&middot;&nbsp; Arrival</div>
-        <div class="sched-loc">Cadman Plaza Park</div>
-      </div>
-
-      <div class="schedule-item">
-        <div class="sched-line">9:30 – 10:30 &nbsp;&middot;&nbsp; Opening Ceremony &amp; Blessing</div>
-      </div>
-
-      <div class="schedule-item">
-        <div class="sched-line">10:30 – 11:30 &nbsp;&middot;&nbsp; Mindful Walk</div>
-        <div class="sched-loc">Brooklyn Bridge</div>
-      </div>
-       <div class="schedule-item">
-        <div class="sched-line">11:30 &nbsp;·&nbsp; Dedication of Merits </div>
-        <div class="sched-loc"> City Hall Park </div>
+    <!-- Mindfulness pushed to bottom -->
+    <div class="left-bottom">
+      <div class="mindfulness-section">
+        <div class="section-heading">About Mindfulness</div>
+        <div class="mindfulness-text">
+          Mindfulness is the practice of bringing conscious, non-judgmental awareness to the present moment. By intentionally sensing each footstep and each breath, we learn to gently release the busyness of the mind and return to stillness. Walking across the Brooklyn Bridge, the city becomes a quiet backdrop — and every step becomes an opportunity to meet yourself right where you are. Mindfulness needs no special setting; it lives in each step you choose to take with presence.
+        </div>
       </div>
     </div>
 
@@ -306,19 +282,25 @@
   <!-- RIGHT COLUMN (cream panel over photo) -->
   <div class="right-col">
 
-    <!-- Mindfulness intro -->
-    <div class="mindfulness-section">
-      <div class="section-heading">About Mindfulness</div>
-      <div class="mindfulness-text">
-        Mindfulness is the practice of bringing conscious, non-judgmental awareness to the present moment. By intentionally sensing each footstep and each breath, we learn to gently release the busyness of the mind and return to stillness. Walking across the Brooklyn Bridge, the city becomes a quiet backdrop — and every step becomes an opportunity to meet yourself right where you are. Mindfulness needs no special setting; it lives in each step you choose to take with presence.
+    <!-- Schedule -->
+    <div class="schedule-heading">Today's Schedule</div>
+
+    <div class="schedule-grid">
+      <div class="schedule-item">
+        <div class="sched-line">9:00 – 9:30 &nbsp;&middot;&nbsp; Arrival</div>
+        <div class="sched-loc">Cadman Plaza Park</div>
       </div>
-      <div class="video-qr-row">
-        <div class="video-qr-placeholder">
-          <span>QR Code<br>Placeholder</span>
-        </div>
-        <div class="video-qr-caption">
-          Scan to watch our<br>mindfulness guide video
-        </div>
+      <div class="schedule-item">
+        <div class="sched-line">9:30 – 10:30 &nbsp;&middot;&nbsp; Opening Ceremony &amp; Blessing</div>
+        <div class="sched-loc"></div>
+      </div>
+      <div class="schedule-item">
+        <div class="sched-line">10:30 – 11:30 &nbsp;&middot;&nbsp; Mindful Walk</div>
+        <div class="sched-loc">Brooklyn Bridge</div>
+      </div>
+      <div class="schedule-item">
+        <div class="sched-line">11:30 &nbsp;&middot;&nbsp; Dedication of Merits</div>
+        <div class="sched-loc">City Hall Park</div>
       </div>
     </div>
 
@@ -329,7 +311,7 @@
 
       <div class="wba-intro-heading">About WBA</div>
       <div class="wba-intro-text">
-        The Western Buddhist Association (WBA) is a non-profit Buddhist organization founded in New York City in 1998. Rooted in the traditions of Chinese Buddhism, WBA operates Fanyin Temple — a place of spiritual practice, cultural celebration, and community service in the heart of New York. We share the teachings of the Buddha, foster interfaith dialogue, and serve the broader community through compassionate action.
+        The Western Buddhist Association (WBA) was founded in 1998 and is a non-profit Buddhist institution deeply rooted in New York City. Upholding the finest traditions of Chinese Buddhism, WBA established Fanyin Temple in the heart of the city as a place of pure practice — a sacred ground where practitioners cultivate the mind, and a spiritual home for cultural heritage and community service.
       </div>
 
       <div class="social-qr-row">
@@ -382,7 +364,8 @@
       </div>
 
       <div class="footer-note">
-        Fanyin Temple &middot; hello@wba-nyc.org &middot; 718-686-7606
+        Fanyin Temple &middot; hello@wba-nyc.org &middot; 718-686-7606<br>
+        Address: 5601 Fort Hamilton Parkway, Brooklyn, NY 11219
       </div>
 
     </div>

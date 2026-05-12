@@ -14,8 +14,6 @@
 
   .page {
     width: 11in; height: 8.5in;
-    background-image: url('landscape_background.png');
-    background-size: cover; background-position: center;
     background-color: #fdf8f0;
     position: relative; overflow: hidden; box-sizing: border-box;
     box-shadow: 0px 15px 40px rgba(0,0,0,0.8);
@@ -24,6 +22,13 @@
     color: #2c1810;
     flex-shrink: 0;
   }
+  .page-bg {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    z-index: 0; display: block; pointer-events: none;
+  }
+  .left-col, .right-col { position: relative; z-index: 1; }
 
   @media print {
     @page { size: 11in 8.5in landscape; margin: 0; }
@@ -32,14 +37,35 @@
       margin: 0 !important; padding: 0 !important;
       background: transparent !important;
       display: block !important;
-      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
     }
     .page {
       width: 11in !important; height: 8.5in !important;
       margin: 0 !important; position: absolute !important;
       top: 0 !important; left: 0 !important;
       box-shadow: none !important;
+      -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
     }
+    .page-bg { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    /* White text-shadow renders as solid white boxes in PDF — remove entirely */
+    .left-col .org-name,
+    .left-col .festival-kicker,
+    .left-col .main-title,
+    .left-col .event-datetime,
+    .left-col .event-subtitle,
+    .left-col .section-heading,
+    .left-col .mindfulness-text,
+    .right-col .schedule-heading,
+    .right-col .sched-line,
+    .right-col .sched-loc,
+    .right-col .wba-intro-heading,
+    .right-col .wba-intro-text,
+    .right-col .qr-platform-label,
+    .right-col .qr-name-label,
+    .right-col .donation-panel-header,
+    .right-col .donation-panel-text,
+    .right-col .donation-panel-subtext,
+    .right-col .footer-note { text-shadow: none !important; }
   }
 
   /* ── Two-column layout ── */
@@ -71,7 +97,7 @@
   .org-name {
     font-size: 10pt; letter-spacing: 0.35em; color: #5c1420; font-weight: bold;
     display: flex; align-items: center; justify-content: center; gap: 7pt;
-    margin-bottom: 5pt;
+    margin-top: 10pt; margin-bottom: 5pt;
   }
   .org-name img { height: 26pt; width: auto; object-fit: contain; }
 
@@ -240,6 +266,7 @@
 </head>
 <body>
 <div class="page">
+  <img class="page-bg" src="landscape_background.png" alt="">
 
   <!-- LEFT COLUMN -->
   <div class="left-col">

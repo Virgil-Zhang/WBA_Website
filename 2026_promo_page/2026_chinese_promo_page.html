@@ -52,7 +52,8 @@
     .left-col .festival-kicker,
     .left-col .main-title,
     .left-col .event-datetime,
-    .left-col .event-subtitle,
+    .left-col .subtitle-block,
+    .left-col .subtitle-light,
     .left-col .schedule-heading,
     .left-col .sched-line,
     .left-col .sched-loc,
@@ -92,36 +93,14 @@
   .left-col .festival-kicker,
   .left-col .main-title,
   .left-col .event-datetime,
-  .left-col .event-subtitle,
+  .left-col .subtitle-block,
+  .left-col .subtitle-light,
   .left-col .schedule-heading,
   .left-col .sched-line,
   .left-col .sched-loc,
   .left-col .reg-qr-label,
   .left-col .reg-qr-sublabel {
     text-shadow: 0 0 10px rgba(255,255,255,0.95), 0 0 20px #fff, 0 0 35px rgba(255,255,255,0.7);
-  }
-
-  /* Registration QR — inline with event-subtitle */
-  .subtitle-qr-row {
-    display: flex; align-items: center; justify-content: center; gap: 8pt;
-  }
-  .subtitle-qr-row .event-subtitle { flex: 1; text-align: left; }
-
-  .reg-qr-panel {
-    display: flex; flex-direction: column; align-items: center; flex-shrink: 0;
-  }
-  .reg-qr-label {
-    font-size: 7pt; color: #b8860b; font-weight: bold;
-    letter-spacing: 0.2em; margin-bottom: 2pt;
-  }
-  .reg-qr-img-box {
-    width: 0.85in; height: 0.85in;
-    border-radius: 5px; overflow: hidden; margin-bottom: 2pt;
-  }
-  .reg-qr-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .reg-qr-sublabel {
-    font-size: 6pt; color: #5c1420;
-    letter-spacing: 0.06em; text-align: center;
   }
 
   .org-name {
@@ -154,10 +133,39 @@
 
   .event-datetime {
     font-size: 9.5pt; color: #5c1420; font-weight: bold;
-    letter-spacing: 0.1em; margin-bottom: 4pt;
+    letter-spacing: 0.1em; margin-bottom: 6pt;
   }
-  .event-subtitle {
-    font-size: 7.5pt; color: #7b1f2e; letter-spacing: 0.06em;
+
+  /* Subtitle + QR row — reference: vertical flyer subtitle-row */
+  .subtitle-qr-row {
+    display: flex; align-items: center; gap: 10pt; justify-content: center;
+  }
+  .subtitle-block {
+    flex: 1; text-align: center;
+    font-size: 10pt; color: #5c1420; font-weight: bold;
+    letter-spacing: 0.15em; line-height: 1.6;
+  }
+  .subtitle-light {
+    font-weight: normal; font-size: 8pt; color: #7b1f2e;
+    letter-spacing: 0.1em; display: block; margin-bottom: 3pt;
+  }
+
+  /* Registration QR */
+  .reg-qr-panel {
+    display: flex; flex-direction: column; align-items: center; flex-shrink: 0;
+  }
+  .reg-qr-label {
+    font-size: 7pt; color: #b8860b; font-weight: bold;
+    letter-spacing: 0.2em; margin-bottom: 2pt;
+  }
+  .reg-qr-img-box {
+    width: 0.85in; height: 0.85in;
+    border-radius: 5px; overflow: hidden; margin-bottom: 2pt;
+  }
+  .reg-qr-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .reg-qr-sublabel {
+    font-size: 6pt; color: #5c1420;
+    letter-spacing: 0.06em; text-align: center;
   }
 
   /* Schedule pushed to bottom */
@@ -214,9 +222,10 @@
     letter-spacing: 0.3em; margin-bottom: 4pt;
   }
 
-  /* About Mindfulness */
+  /* About Mindfulness — pushed down from top */
   .mindfulness-section {
     flex-shrink: 0;
+    margin-top: 20pt;
   }
 
   .mindfulness-text {
@@ -224,9 +233,9 @@
     letter-spacing: 0.05em; text-align: justify;
   }
 
-  /* Mindfulness & Giving */
+  /* Mindfulness & Giving — larger gap above */
   .giving-section {
-    margin-top: 14pt;
+    margin-top: 22pt;
     flex-shrink: 0;
   }
 
@@ -245,27 +254,16 @@
     border-radius: 2px;
   }
 
-  /* Divider between giving and Fanyin Temple section */
+  /* Divider */
   .section-divider {
     height: 1px;
     background: linear-gradient(to right, transparent, #c8922a 20%, #c8922a 80%, transparent);
     margin: 8pt 0 6pt 0; opacity: 0.55; flex-shrink: 0;
   }
 
-  .wba-section { flex: 1; display: flex; flex-direction: column; }
-
-  .wba-intro-heading {
-    font-size: 8pt; color: #b8860b; font-weight: bold;
-    letter-spacing: 0.25em; margin-bottom: 4pt;
-  }
-  .wba-intro-text {
-    font-size: 7.5pt; color: #5c1420; line-height: 1.75;
-    letter-spacing: 0.05em; text-align: justify;
-    margin-bottom: 7pt;
-  }
-
+  /* Social QRs */
   .social-qr-row {
-    display: flex; gap: 6pt; margin-bottom: 6pt; flex-shrink: 0;
+    display: flex; gap: 6pt; flex-shrink: 0; margin-bottom: 0;
   }
   .qr-col {
     flex: 1; display: flex; flex-direction: column; align-items: center;
@@ -285,6 +283,7 @@
     letter-spacing: 0.04em; text-align: center; line-height: 1.4;
   }
 
+  /* Donation QRs */
   .donation-row { display: flex; gap: 6pt; margin-bottom: 4pt; flex-shrink: 0; }
   .donation-panel {
     flex: 1; display: flex; flex-direction: column; align-items: center;
@@ -309,10 +308,27 @@
     letter-spacing: 0.03em; margin-top: 2pt;
   }
 
+  /* WBA intro — pushed to bottom above footer */
+  .wba-intro-wrap {
+    margin-top: auto;
+    flex-shrink: 0;
+    padding-top: 8pt;
+  }
+  .wba-intro-heading {
+    font-size: 8pt; color: #b8860b; font-weight: bold;
+    letter-spacing: 0.25em; margin-bottom: 4pt;
+  }
+  .wba-intro-text {
+    font-size: 7.5pt; color: #5c1420; line-height: 1.75;
+    letter-spacing: 0.05em; text-align: justify;
+    margin-bottom: 5pt;
+  }
+
   .footer-note {
     font-size: 7pt; color: #5c1420; font-weight: bold;
-    letter-spacing: 0.12em; text-align: center; margin-top: auto;
+    letter-spacing: 0.12em; text-align: center;
     padding-top: 4pt; line-height: 2;
+    flex-shrink: 0;
   }
 </style>
 </head>
@@ -335,8 +351,13 @@
     <div class="title-divider-bottom"></div>
 
     <div class="event-datetime">2026年5月16日（星期六）&nbsp;|&nbsp; 上午9:00 – 中午12:00</div>
+
+    <!-- Subtitle + Eventbrite QR (reference: vertical flyer subtitle-row) -->
     <div class="subtitle-qr-row">
-      <div class="event-subtitle">免費公開活動 · 歡迎大家參加 · 布魯克林大橋步行約1.1英里</div>
+      <div class="subtitle-block">
+        <span class="subtitle-light">免費公開活動 · 歡迎大家參加</span>
+        體驗一場穿越布魯克林大橋的正念行走。
+      </div>
       <div class="reg-qr-panel">
         <div class="reg-qr-label">掃碼報名</div>
         <div class="reg-qr-img-box">
@@ -346,7 +367,7 @@
       </div>
     </div>
 
-    <!-- 今日流程（移至左下角） -->
+    <!-- 今日流程（左下角） -->
     <div class="left-bottom">
       <div class="schedule-heading">今 日 流 程</div>
       <div class="schedule-grid">
@@ -378,7 +399,7 @@
   <!-- RIGHT COLUMN -->
   <div class="right-col">
 
-    <!-- 關於正念（移至右欄上方） -->
+    <!-- 關於正念（右欄上方，稍往下移） -->
     <div class="mindfulness-section">
       <div class="section-heading">關 於 正 念</div>
       <div class="mindfulness-text">
@@ -386,7 +407,7 @@
       </div>
     </div>
 
-    <!-- 正念與給予（新增） -->
+    <!-- 正念與給予（更大間距） -->
     <div class="giving-section">
       <div class="section-heading">正 念 與 給 予</div>
       <div class="giving-text">
@@ -418,43 +439,42 @@
 
     <div class="section-divider"></div>
 
-    <!-- 梵音寺介紹 -->
-    <div class="wba-section">
+    <!-- 社交媒體二維碼 -->
+    <div class="social-qr-row">
+      <div class="qr-col">
+        <div class="qr-platform-label">官方網站</div>
+        <div class="qr-img-box">
+          <img src="../QR_code/website_qr-code.jpg" alt="梵音寺官方網站">
+        </div>
+        <div class="qr-name-label">https://wba-nyc.org</div>
+      </div>
+      <div class="qr-col">
+        <div class="qr-platform-label">Facebook</div>
+        <div class="qr-img-box">
+          <img src="../QR_code/facebook_qr-code.jpg" alt="Facebook">
+        </div>
+        <div class="qr-name-label">New York Buddhist<br>Cultural Festival<br>紐約佛教文化節</div>
+      </div>
+      <div class="qr-col">
+        <div class="qr-platform-label">Instagram</div>
+        <div class="qr-img-box">
+          <img src="../QR_code/instagram_qr-code.jpg" alt="Instagram">
+        </div>
+        <div class="qr-name-label">@nybuddhistfestival</div>
+      </div>
+    </div>
 
+    <!-- 關於西方佛學會（底部，社交二維碼之下，Footer 之上） -->
+    <div class="wba-intro-wrap">
       <div class="wba-intro-heading">關於西方佛學會</div>
       <div class="wba-intro-text">
         西方佛學會（Western Buddhist Association, WBA）成立於 1998 年，是一所深耕於紐約市的非營利佛教機構。本會秉持漢傳佛教之優良傳統，於鬧市中開闢梵音寺作為清淨道場，不僅是修行者砥礪心靈的聖地，亦是文化傳承與社區服務的精神家園。
       </div>
+    </div>
 
-      <div class="social-qr-row">
-        <div class="qr-col">
-          <div class="qr-platform-label">官方網站</div>
-          <div class="qr-img-box">
-            <img src="../QR_code/website_qr-code.jpg" alt="梵音寺官方網站">
-          </div>
-          <div class="qr-name-label">https://wba-nyc.org</div>
-        </div>
-        <div class="qr-col">
-          <div class="qr-platform-label">Facebook</div>
-          <div class="qr-img-box">
-            <img src="../QR_code/facebook_qr-code.jpg" alt="Facebook">
-          </div>
-          <div class="qr-name-label">New York Buddhist<br>Cultural Festival<br>紐約佛教文化節</div>
-        </div>
-        <div class="qr-col">
-          <div class="qr-platform-label">Instagram</div>
-          <div class="qr-img-box">
-            <img src="../QR_code/instagram_qr-code.jpg" alt="Instagram">
-          </div>
-          <div class="qr-name-label">@nybuddhistfestival</div>
-        </div>
-      </div>
-
-      <div class="footer-note">
-        普陀山紐約梵音寺 &middot; hello@wba-nyc.org &middot; 718-686-7606<br>
-        地址：5601 Fort Hamilton Parkway, Brooklyn, NY 11219
-      </div>
-
+    <div class="footer-note">
+      普陀山紐約梵音寺 &middot; hello@wba-nyc.org &middot; 718-686-7606<br>
+      地址：5601 Fort Hamilton Parkway, Brooklyn, NY 11219
     </div>
 
   </div>

@@ -54,11 +54,15 @@
     .left-col .main-title-proof,
     .left-col .event-datetime,
     .left-col .event-subtitle,
-    .left-col .section-heading,
-    .left-col .mindfulness-text,
-    .right-col .schedule-heading,
-    .right-col .sched-line,
-    .right-col .sched-loc,
+    .left-col .schedule-heading,
+    .left-col .sched-line,
+    .left-col .sched-loc,
+    .left-col .reg-qr-label,
+    .left-col .reg-qr-sublabel,
+    .right-col .section-heading,
+    .right-col .mindfulness-text,
+    .right-col .giving-text,
+    .right-col .giving-highlight,
     .right-col .wba-intro-heading,
     .right-col .wba-intro-text,
     .right-col .qr-platform-label,
@@ -79,7 +83,7 @@
   .right-col {
     flex: 1;
     display: flex; flex-direction: column;
-    padding: 0.55in 0.18in 0.15in 0.18in;
+    padding: 0.18in 0.18in 0.1in 0.18in;
   }
 
   /* ===== LEFT COLUMN ===== */
@@ -91,34 +95,56 @@
   .left-col .main-title-proof,
   .left-col .event-datetime,
   .left-col .event-subtitle,
-  .left-col .section-heading,
-  .left-col .mindfulness-text {
+  .left-col .schedule-heading,
+  .left-col .sched-line,
+  .left-col .sched-loc,
+  .left-col .reg-qr-label,
+  .left-col .reg-qr-sublabel {
     text-shadow: 0 0 10px rgba(255,255,255,0.95), 0 0 20px #fff, 0 0 35px rgba(255,255,255,0.7);
+  }
+
+  /* Registration QR panel */
+  .reg-qr-panel {
+    display: flex; flex-direction: column; align-items: center;
+    margin-top: 4pt; margin-bottom: 5pt;
+  }
+  .reg-qr-label {
+    font-size: 7pt; color: #b8860b; font-weight: bold;
+    text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 3pt;
+  }
+  .reg-qr-img-box {
+    width: 0.9in; height: 0.9in;
+    border-radius: 5px; overflow: hidden; margin-bottom: 2pt;
+  }
+  .reg-qr-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .reg-qr-sublabel {
+    font-size: 6pt; color: #5c1420;
+    letter-spacing: 0.04em; text-align: center;
   }
 
   .org-name {
     font-size: 9.5pt; letter-spacing: 0.12em; color: #5c1420; font-weight: bold;
     text-transform: uppercase;
     display: flex; align-items: center; justify-content: center; gap: 7pt;
-    margin-top: 10pt; margin-bottom: 5pt;
+    margin-top: 6pt; margin-bottom: 4pt;
   }
   .org-name img { height: 26pt; width: auto; object-fit: contain; }
 
   .festival-kicker {
     font-size: 7.5pt; color: #b8860b; font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 0.14em; margin-bottom: 7pt;
+    letter-spacing: 0.14em; margin-bottom: 6pt;
   }
 
   .title-divider {
     height: 1.5px;
     background: linear-gradient(to right, transparent, #c8922a 20%, #c8922a 80%, transparent);
-    margin-bottom: 8pt; opacity: 0.85;
+    margin-bottom: 7pt; opacity: 0.85;
   }
   .title-divider-bottom {
     height: 1.5px;
     background: linear-gradient(to right, transparent, #c8922a 20%, #c8922a 80%, transparent);
-    margin-bottom: 7pt; opacity: 0.85;
+    margin-bottom: 6pt; opacity: 0.85;
   }
 
   .main-title {
@@ -139,11 +165,11 @@
     font-style: italic;
   }
 
-  /* Mindfulness pushed to bottom */
+  /* Schedule pushed to bottom */
   .left-bottom {
     margin-top: auto;
-    margin-bottom: 18pt;
-    padding-left: 0.2in;
+    margin-bottom: 14pt;
+    padding-left: 0.1in;
     margin-right: -0.18in;
   }
 
@@ -156,26 +182,27 @@
     display: grid;
     grid-template-columns: max-content max-content;
     justify-content: center;
-    row-gap: 4pt;
-    column-gap: 14pt;
+    row-gap: 3pt;
+    column-gap: 12pt;
   }
   .schedule-item { display: contents; }
 
   .sched-line {
-    font-size: 9pt; color: #5c1420; font-weight: bold;
-    letter-spacing: 0.04em; line-height: 1.45; text-align: left;
+    font-size: 8.5pt; color: #5c1420; font-weight: bold;
+    letter-spacing: 0.04em; line-height: 1.4; text-align: left;
   }
   .sched-loc {
-    font-size: 7.5pt; color: #7b1f2e; letter-spacing: 0.04em;
+    font-size: 7pt; color: #7b1f2e; letter-spacing: 0.04em;
     font-style: italic; align-self: center; text-align: left;
   }
 
   /* ===== RIGHT COLUMN ===== */
 
   /* White glow for readability over photo background */
-  .right-col .schedule-heading,
-  .right-col .sched-line,
-  .right-col .sched-loc,
+  .right-col .section-heading,
+  .right-col .mindfulness-text,
+  .right-col .giving-text,
+  .right-col .giving-highlight,
   .right-col .wba-intro-heading,
   .right-col .wba-intro-text,
   .right-col .qr-platform-label,
@@ -189,40 +216,61 @@
 
   .section-heading {
     font-size: 9pt; color: #b8860b; font-weight: bold; text-transform: uppercase;
-    letter-spacing: 0.25em; margin-bottom: 5pt;
+    letter-spacing: 0.25em; margin-bottom: 4pt;
   }
 
+  /* About Mindfulness */
   .mindfulness-section {
-    margin-bottom: 0;
     flex-shrink: 0;
   }
 
   .mindfulness-text {
-    font-size: 7pt; color: #5c1420; line-height: 1.8;
+    font-size: 7pt; color: #5c1420; line-height: 1.65;
     letter-spacing: 0.01em; text-align: justify;
   }
 
-  /* Divider between schedule and WBA section */
+  /* Mindfulness & Giving */
+  .giving-section {
+    margin-top: 7pt;
+    flex-shrink: 0;
+  }
+
+  .giving-text {
+    font-size: 7pt; color: #5c1420; line-height: 1.65;
+    letter-spacing: 0.01em; text-align: justify;
+    margin-bottom: 5pt;
+  }
+
+  .giving-highlight {
+    font-size: 7.5pt; color: #5c1420; font-weight: bold;
+    line-height: 1.5; margin-bottom: 5pt;
+    padding: 4pt 7pt;
+    border-left: 2.5px solid #c8922a;
+    background: rgba(200, 146, 42, 0.09);
+    border-radius: 2px;
+  }
+
+  /* Divider between giving and Fanyin Temple section */
   .section-divider {
     height: 1px;
     background: linear-gradient(to right, transparent, #c8922a 20%, #c8922a 80%, transparent);
-    margin: 32pt 0 14pt 0; opacity: 0.55; flex-shrink: 0;
+    margin: 8pt 0 6pt 0; opacity: 0.55; flex-shrink: 0;
   }
 
-  .wba-section { flex: 1; display: flex; flex-direction: column; padding-top: 22pt; }
+  .wba-section { flex: 1; display: flex; flex-direction: column; }
 
   .wba-intro-heading {
     font-size: 8pt; color: #b8860b; font-weight: bold;
-    text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 5pt;
+    text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 4pt;
   }
   .wba-intro-text {
-    font-size: 8pt; color: #5c1420; line-height: 1.8;
+    font-size: 7.5pt; color: #5c1420; line-height: 1.7;
     letter-spacing: 0.01em; text-align: justify;
-    margin-bottom: 10pt;
+    margin-bottom: 7pt;
   }
 
   .social-qr-row {
-    display: flex; gap: 6pt; margin-bottom: 8pt; flex-shrink: 0;
+    display: flex; gap: 6pt; margin-bottom: 6pt; flex-shrink: 0;
   }
   .qr-col {
     flex: 1; display: flex; flex-direction: column; align-items: center;
@@ -232,7 +280,7 @@
     text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 3pt; text-align: center;
   }
   .qr-img-box {
-    width: 0.78in; height: 0.78in;
+    width: 0.92in; height: 0.92in;
     border-radius: 5px; overflow: hidden;
     margin-bottom: 3pt;
   }
@@ -242,23 +290,23 @@
     letter-spacing: 0.02em; text-align: center; line-height: 1.4;
   }
 
-  .donation-row { display: flex; gap: 6pt; margin-bottom: 6pt; flex-shrink: 0; }
+  .donation-row { display: flex; gap: 6pt; margin-bottom: 4pt; flex-shrink: 0; }
   .donation-panel {
     flex: 1; display: flex; flex-direction: column; align-items: center;
     text-align: center;
   }
   .donation-panel-header {
-    font-size: 7.5pt; color: #b8860b; font-weight: bold;
+    font-size: 7pt; color: #b8860b; font-weight: bold;
     text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 3pt;
   }
   .donation-qr-box {
-    width: 0.88in; height: 0.88in;
+    width: 1.05in; height: 1.05in;
     border-radius: 5px; overflow: hidden;
     margin-bottom: 3pt;
   }
   .donation-qr-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .donation-panel-text {
-    font-size: 7.5pt; color: #5c1420; font-weight: bold;
+    font-size: 7pt; color: #5c1420; font-weight: bold;
     line-height: 1.5; letter-spacing: 0.04em;
   }
   .donation-panel-subtext {
@@ -280,9 +328,18 @@
   <!-- LEFT COLUMN -->
   <div class="left-col">
 
+    <!-- Registration QR (top) -->
+    <div class="reg-qr-panel">
+      <div class="reg-qr-label">Register Now</div>
+      <div class="reg-qr-img-box">
+        <img src="../QR_code/eventbrite_qr-code_english.jpg" alt="Register">
+      </div>
+      <div class="reg-qr-sublabel">Scan to Register (Free)</div>
+    </div>
+
     <div class="org-name">
-      <img src="../co-organizer_logo/logo_wba.jpg" alt="WBA">
-      Western Buddhist Association
+      <img src="../co-organizer_logo/logo_wba.jpg" alt="Fanyin Temple">
+      Fanyin Temple &middot; New York
     </div>
 
     <div class="festival-kicker">2nd Annual New York Buddhist Cultural Festival</div>
@@ -295,58 +352,91 @@
     <div class="event-datetime">Saturday, May 16, 2026 &nbsp;|&nbsp; 9:00 AM &ndash; 12:00 PM</div>
     <div class="event-subtitle">Free public event &bull; All are warmly welcome &bull; ~1.1-mile walk across Brooklyn Bridge</div>
 
-    <!-- Mindfulness pushed to bottom -->
+    <!-- Schedule pushed to bottom -->
     <div class="left-bottom">
-      <div class="mindfulness-section">
-        <div class="section-heading">About Mindfulness</div>
-        <div class="mindfulness-text">
-          Mindfulness is the practice of bringing conscious, non-judgmental awareness to the present moment. By intentionally sensing each footstep and each breath, we learn to gently release the busyness of the mind and return to stillness. Walking across the Brooklyn Bridge, the city becomes a quiet backdrop — and every step becomes an opportunity to meet yourself right where you are. Mindfulness needs no special setting; it lives in each step you choose to take with presence.
+      <div class="schedule-heading">Today's Schedule</div>
+      <div class="schedule-grid">
+        <div class="schedule-item">
+          <div class="sched-line">9:00 – 9:30 &nbsp;&middot;&nbsp; Mindfulness Music</div>
+          <div class="sched-loc">Cadman Plaza Park</div>
+        </div>
+        <div class="schedule-item">
+          <div class="sched-line">9:30 – 10:00 &nbsp;&middot;&nbsp; Opening Ceremony</div>
+          <div class="sched-loc"></div>
+        </div>
+        <div class="schedule-item">
+          <div class="sched-line">10:00 – 10:30 &nbsp;&middot;&nbsp; Blessing Ceremony</div>
+          <div class="sched-loc"></div>
+        </div>
+        <div class="schedule-item">
+          <div class="sched-line">10:30 – 11:30 &nbsp;&middot;&nbsp; Mindful Walk</div>
+          <div class="sched-loc">Brooklyn Bridge</div>
+        </div>
+        <div class="schedule-item">
+          <div class="sched-line">11:30 &nbsp;&middot;&nbsp; Dedication of Merits</div>
+          <div class="sched-loc">City Hall Park</div>
         </div>
       </div>
     </div>
 
   </div>
 
-  <!-- RIGHT COLUMN (cream panel over photo) -->
+  <!-- RIGHT COLUMN -->
   <div class="right-col">
 
-    <!-- Schedule -->
-    <div class="schedule-heading">Today's Schedule</div>
+    <!-- About Mindfulness (moved to right column top) -->
+    <div class="mindfulness-section">
+      <div class="section-heading">About Mindfulness</div>
+      <div class="mindfulness-text">
+        In the rush of modern life, <strong>stress and distraction</strong> pull us further from ourselves — and from the peace we already carry within. <strong>Mindfulness</strong> is the art of returning: to the present moment, to stillness, to our truest selves. Join us as <strong>experienced Venerable Masters</strong> guide you through mindful walking practice, transforming every step across the Brooklyn Bridge into a path toward clarity and well-being.
+      </div>
+    </div>
 
-    <div class="schedule-grid">
-      <div class="schedule-item">
-        <div class="sched-line">9:00 – 9:30 &nbsp;&middot;&nbsp; Arrival</div>
-        <div class="sched-loc">Cadman Plaza Park</div>
+    <!-- Mindfulness & Giving (new section) -->
+    <div class="giving-section">
+      <div class="section-heading">Mindfulness &amp; Giving</div>
+      <div class="giving-text">
+        Compassion and generosity are not qualities we must acquire — they are already woven into our nature. Yet the pressures of daily life can bury them beneath layers of stress and anxiety. When we practice mindfulness and meditation, releasing negativity and returning to stillness, our innate care for others naturally rises and flows outward. That is why <strong>giving</strong> is at the heart of this walk.
       </div>
-      <div class="schedule-item">
-        <div class="sched-line">9:30 – 10:30 &nbsp;&middot;&nbsp; Opening Ceremony &amp; Blessing</div>
-        <div class="sched-loc"></div>
+      <div class="giving-highlight">
+        For each completed walk, a $1 donation will be made to support individuals with autism and their families.
       </div>
-      <div class="schedule-item">
-        <div class="sched-line">10:30 – 11:30 &nbsp;&middot;&nbsp; Mindful Walk</div>
-        <div class="sched-loc">Brooklyn Bridge</div>
-      </div>
-      <div class="schedule-item">
-        <div class="sched-line">11:30 &nbsp;&middot;&nbsp; Dedication of Merits</div>
-        <div class="sched-loc">City Hall Park</div>
+      <div class="donation-row">
+        <div class="donation-panel">
+          <div class="donation-panel-header">&#9825;&nbsp; Community Giving</div>
+          <div class="donation-qr-box">
+            <img src="../QR_code/autismspeaks_qr-code.png" alt="Autism Speaks">
+          </div>
+          <div class="donation-panel-text">Autism Speaks</div>
+        </div>
+        <div class="donation-panel">
+          <div class="donation-panel-header">&#9825;&nbsp; Support Fanyin Temple</div>
+          <div class="donation-qr-box">
+            <img src="../QR_code/wba_zelle_qr-code.png" alt="Fanyin Temple Zelle">
+          </div>
+          <div class="donation-panel-text">Scan to Donate</div>
+          <div class="donation-panel-subtext">
+            Zelle: fanyintempleusa@gmail.com
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="section-divider"></div>
 
-    <!-- WBA section -->
+    <!-- Fanyin Temple section -->
     <div class="wba-section">
 
-      <div class="wba-intro-heading">About WBA</div>
+      <div class="wba-intro-heading">About Fanyin Temple</div>
       <div class="wba-intro-text">
-        The Western Buddhist Association (WBA) was founded in 1998 and is a non-profit Buddhist institution deeply rooted in New York City. Upholding the finest traditions of Chinese Buddhism, WBA established Fanyin Temple in the heart of the city as a place of pure practice — a sacred ground where practitioners cultivate the mind, and a spiritual home for cultural heritage and community service.
+        Fanyin Temple (Putuo Mountain, New York) is a non-profit Buddhist institution established in the heart of New York City, upholding the finest traditions of Chinese Buddhism. It is a sacred ground where practitioners cultivate the mind, and a spiritual home for cultural heritage and community service.
       </div>
 
       <div class="social-qr-row">
         <div class="qr-col">
           <div class="qr-platform-label">Our Website</div>
           <div class="qr-img-box">
-            <img src="../QR_code/website_qr-code.jpg" alt="WBA Website">
+            <img src="../QR_code/website_qr-code.jpg" alt="Fanyin Temple Website">
           </div>
           <div class="qr-name-label">https://wba-nyc.org</div>
         </div>
@@ -363,31 +453,6 @@
             <img src="../QR_code/instagram_qr-code.jpg" alt="Instagram">
           </div>
           <div class="qr-name-label">@nybuddhistfestival</div>
-        </div>
-      </div>
-
-      <div class="donation-row">
-        <div class="donation-panel">
-          <div class="donation-panel-header">&#9825;&nbsp; Community Giving</div>
-          <div class="donation-qr-box">
-            <img src="../QR_code/autismspeaks_qr-code.png" alt="Autism Speaks">
-          </div>
-          <div class="donation-panel-text">Co-Organizer</div>
-          <div class="donation-panel-subtext">
-            For each completed walk, a $1 donation<br>
-            will be made to support individuals<br>
-            with autism and their families.
-          </div>
-        </div>
-        <div class="donation-panel">
-          <div class="donation-panel-header">&#9825;&nbsp; Support WBA</div>
-          <div class="donation-qr-box">
-            <img src="../QR_code/wba_zelle_qr-code.png" alt="WBA Zelle">
-          </div>
-          <div class="donation-panel-text">Scan to Donate</div>
-          <div class="donation-panel-subtext">
-            Zelle: fanyintempleusa@gmail.com
-          </div>
         </div>
       </div>
 

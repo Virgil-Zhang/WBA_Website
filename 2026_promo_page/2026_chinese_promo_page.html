@@ -53,11 +53,15 @@
     .left-col .main-title,
     .left-col .event-datetime,
     .left-col .event-subtitle,
-    .left-col .section-heading,
-    .left-col .mindfulness-text,
-    .right-col .schedule-heading,
-    .right-col .sched-line,
-    .right-col .sched-loc,
+    .left-col .schedule-heading,
+    .left-col .sched-line,
+    .left-col .sched-loc,
+    .left-col .reg-qr-label,
+    .left-col .reg-qr-sublabel,
+    .right-col .section-heading,
+    .right-col .mindfulness-text,
+    .right-col .giving-text,
+    .right-col .giving-highlight,
     .right-col .wba-intro-heading,
     .right-col .wba-intro-text,
     .right-col .qr-platform-label,
@@ -78,7 +82,7 @@
   .right-col {
     flex: 1;
     display: flex; flex-direction: column;
-    padding: 0.55in 0.18in 0.15in 0.18in;
+    padding: 0.18in 0.18in 0.1in 0.18in;
   }
 
   /* ===== LEFT COLUMN ===== */
@@ -89,32 +93,54 @@
   .left-col .main-title,
   .left-col .event-datetime,
   .left-col .event-subtitle,
-  .left-col .section-heading,
-  .left-col .mindfulness-text {
+  .left-col .schedule-heading,
+  .left-col .sched-line,
+  .left-col .sched-loc,
+  .left-col .reg-qr-label,
+  .left-col .reg-qr-sublabel {
     text-shadow: 0 0 10px rgba(255,255,255,0.95), 0 0 20px #fff, 0 0 35px rgba(255,255,255,0.7);
+  }
+
+  /* Registration QR panel */
+  .reg-qr-panel {
+    display: flex; flex-direction: column; align-items: center;
+    margin-top: 4pt; margin-bottom: 5pt;
+  }
+  .reg-qr-label {
+    font-size: 7pt; color: #b8860b; font-weight: bold;
+    letter-spacing: 0.25em; margin-bottom: 3pt;
+  }
+  .reg-qr-img-box {
+    width: 0.9in; height: 0.9in;
+    border-radius: 5px; overflow: hidden; margin-bottom: 2pt;
+  }
+  .reg-qr-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .reg-qr-sublabel {
+    font-size: 6pt; color: #5c1420;
+    letter-spacing: 0.1em; text-align: center;
   }
 
   .org-name {
     font-size: 10pt; letter-spacing: 0.35em; color: #5c1420; font-weight: bold;
     display: flex; align-items: center; justify-content: center; gap: 7pt;
-    margin-top: 10pt; margin-bottom: 5pt;
+    margin-top: 6pt; margin-bottom: 4pt;
   }
   .org-name img { height: 26pt; width: auto; object-fit: contain; }
 
   .festival-kicker {
     font-size: 7.5pt; color: #b8860b; font-weight: bold;
-    letter-spacing: 0.1em; margin-bottom: 7pt;
+    letter-spacing: 0.1em; margin-bottom: 6pt;
   }
 
   .title-divider {
     height: 1.5px;
     background: linear-gradient(to right, transparent, #c8922a 20%, #c8922a 80%, transparent);
-    margin-bottom: 8pt; opacity: 0.85;
+    margin-bottom: 7pt; opacity: 0.85;
   }
   .title-divider-bottom {
     height: 1.5px;
     background: linear-gradient(to right, transparent, #c8922a 20%, #c8922a 80%, transparent);
-    margin-bottom: 7pt; opacity: 0.85;
+    margin-bottom: 6pt; opacity: 0.85;
   }
 
   .main-title {
@@ -130,11 +156,11 @@
     font-size: 7.5pt; color: #7b1f2e; letter-spacing: 0.06em;
   }
 
-  /* Mindfulness pushed to bottom */
+  /* Schedule pushed to bottom */
   .left-bottom {
     margin-top: auto;
-    margin-bottom: 18pt;
-    padding-left: 0.2in;
+    margin-bottom: 14pt;
+    padding-left: 0.1in;
     margin-right: -0.18in;
   }
 
@@ -147,26 +173,27 @@
     display: grid;
     grid-template-columns: max-content max-content;
     justify-content: center;
-    row-gap: 4pt;
-    column-gap: 14pt;
+    row-gap: 3pt;
+    column-gap: 12pt;
   }
   .schedule-item { display: contents; }
 
   .sched-line {
-    font-size: 9pt; color: #5c1420; font-weight: bold;
-    letter-spacing: 0.08em; line-height: 1.45; text-align: left;
+    font-size: 8.5pt; color: #5c1420; font-weight: bold;
+    letter-spacing: 0.08em; line-height: 1.4; text-align: left;
   }
   .sched-loc {
-    font-size: 7.5pt; color: #7b1f2e; letter-spacing: 0.08em;
+    font-size: 7pt; color: #7b1f2e; letter-spacing: 0.08em;
     align-self: center; text-align: left;
   }
 
   /* ===== RIGHT COLUMN ===== */
 
   /* White glow for readability over photo background */
-  .right-col .schedule-heading,
-  .right-col .sched-line,
-  .right-col .sched-loc,
+  .right-col .section-heading,
+  .right-col .mindfulness-text,
+  .right-col .giving-text,
+  .right-col .giving-highlight,
   .right-col .wba-intro-heading,
   .right-col .wba-intro-text,
   .right-col .qr-platform-label,
@@ -180,40 +207,61 @@
 
   .section-heading {
     font-size: 9pt; color: #b8860b; font-weight: bold;
-    letter-spacing: 0.3em; margin-bottom: 5pt;
+    letter-spacing: 0.3em; margin-bottom: 4pt;
   }
 
+  /* About Mindfulness */
   .mindfulness-section {
-    margin-bottom: 0;
     flex-shrink: 0;
   }
 
   .mindfulness-text {
-    font-size: 7pt; color: #5c1420; line-height: 1.8;
+    font-size: 7pt; color: #5c1420; line-height: 1.75;
     letter-spacing: 0.05em; text-align: justify;
   }
 
-  /* Divider between schedule and WBA section */
+  /* Mindfulness & Giving */
+  .giving-section {
+    margin-top: 7pt;
+    flex-shrink: 0;
+  }
+
+  .giving-text {
+    font-size: 7pt; color: #5c1420; line-height: 1.75;
+    letter-spacing: 0.05em; text-align: justify;
+    margin-bottom: 5pt;
+  }
+
+  .giving-highlight {
+    font-size: 7.5pt; color: #5c1420; font-weight: bold;
+    line-height: 1.5; margin-bottom: 5pt;
+    padding: 4pt 7pt;
+    border-left: 2.5px solid #c8922a;
+    background: rgba(200, 146, 42, 0.09);
+    border-radius: 2px;
+  }
+
+  /* Divider between giving and Fanyin Temple section */
   .section-divider {
     height: 1px;
     background: linear-gradient(to right, transparent, #c8922a 20%, #c8922a 80%, transparent);
-    margin: 32pt 0 14pt 0; opacity: 0.55; flex-shrink: 0;
+    margin: 8pt 0 6pt 0; opacity: 0.55; flex-shrink: 0;
   }
 
-  .wba-section { flex: 1; display: flex; flex-direction: column; padding-top: 22pt; }
+  .wba-section { flex: 1; display: flex; flex-direction: column; }
 
   .wba-intro-heading {
     font-size: 8pt; color: #b8860b; font-weight: bold;
-    letter-spacing: 0.25em; margin-bottom: 5pt;
+    letter-spacing: 0.25em; margin-bottom: 4pt;
   }
   .wba-intro-text {
-    font-size: 8pt; color: #5c1420; line-height: 1.8;
+    font-size: 7.5pt; color: #5c1420; line-height: 1.75;
     letter-spacing: 0.05em; text-align: justify;
-    margin-bottom: 10pt;
+    margin-bottom: 7pt;
   }
 
   .social-qr-row {
-    display: flex; gap: 6pt; margin-bottom: 8pt; flex-shrink: 0;
+    display: flex; gap: 6pt; margin-bottom: 6pt; flex-shrink: 0;
   }
   .qr-col {
     flex: 1; display: flex; flex-direction: column; align-items: center;
@@ -223,7 +271,7 @@
     letter-spacing: 0.2em; margin-bottom: 3pt; text-align: center;
   }
   .qr-img-box {
-    width: 0.78in; height: 0.78in;
+    width: 0.92in; height: 0.92in;
     border-radius: 5px; overflow: hidden;
     margin-bottom: 3pt;
   }
@@ -233,23 +281,23 @@
     letter-spacing: 0.04em; text-align: center; line-height: 1.4;
   }
 
-  .donation-row { display: flex; gap: 6pt; margin-bottom: 6pt; flex-shrink: 0; }
+  .donation-row { display: flex; gap: 6pt; margin-bottom: 4pt; flex-shrink: 0; }
   .donation-panel {
     flex: 1; display: flex; flex-direction: column; align-items: center;
     text-align: center;
   }
   .donation-panel-header {
-    font-size: 7.5pt; color: #b8860b; font-weight: bold;
+    font-size: 7pt; color: #b8860b; font-weight: bold;
     letter-spacing: 0.12em; margin-bottom: 3pt;
   }
   .donation-qr-box {
-    width: 0.88in; height: 0.88in;
+    width: 1.05in; height: 1.05in;
     border-radius: 5px; overflow: hidden;
     margin-bottom: 3pt;
   }
   .donation-qr-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .donation-panel-text {
-    font-size: 7.5pt; color: #5c1420; font-weight: bold;
+    font-size: 7pt; color: #5c1420; font-weight: bold;
     line-height: 1.5; letter-spacing: 0.06em;
   }
   .donation-panel-subtext {
@@ -271,8 +319,17 @@
   <!-- LEFT COLUMN -->
   <div class="left-col">
 
+    <!-- 報名二維碼（上方） -->
+    <div class="reg-qr-panel">
+      <div class="reg-qr-label">掃 碼 報 名</div>
+      <div class="reg-qr-img-box">
+        <img src="../QR_code/eventbrite_qr-code_chinese.jpg" alt="掃碼報名">
+      </div>
+      <div class="reg-qr-sublabel">掃碼免費報名</div>
+    </div>
+
     <div class="org-name">
-      <img src="../co-organizer_logo/logo_wba.jpg" alt="WBA">
+      <img src="../co-organizer_logo/logo_wba.jpg" alt="梵音寺">
       普陀山紐約梵音寺
     </div>
 
@@ -285,58 +342,91 @@
     <div class="event-datetime">2026年5月16日（星期六）&nbsp;|&nbsp; 上午9:00 – 中午12:00</div>
     <div class="event-subtitle">免費公開活動 · 歡迎大家參加 · 布魯克林大橋步行約1.1英里</div>
 
-    <!-- Mindfulness pushed to bottom -->
+    <!-- 今日流程（移至左下角） -->
     <div class="left-bottom">
-      <div class="mindfulness-section">
-        <div class="section-heading">關 於 正 念</div>
-        <div class="mindfulness-text">
-          正念，是以開放而不評判的心，清醒覺察當下每一刻的修行。透過有意識地感知每一步的落地、每一次呼吸的起伏，我們學習從紛擾的念頭中輕輕抽離，回到此刻的平靜。在布魯克林大橋上，繁忙的城市化為無聲的背景，每一步都是與自己內心的相遇。正念不需要特別的地點，它就在你踏出的每一步之中。
+      <div class="schedule-heading">今 日 流 程</div>
+      <div class="schedule-grid">
+        <div class="schedule-item">
+          <div class="sched-line">9:00 – 9:30 &nbsp;·&nbsp; 正念音樂</div>
+          <div class="sched-loc">卡德曼廣場公園</div>
+        </div>
+        <div class="schedule-item">
+          <div class="sched-line">9:30 – 10:00 &nbsp;·&nbsp; 開幕式</div>
+          <div class="sched-loc"></div>
+        </div>
+        <div class="schedule-item">
+          <div class="sched-line">10:00 – 10:30 &nbsp;·&nbsp; 祈福儀式</div>
+          <div class="sched-loc"></div>
+        </div>
+        <div class="schedule-item">
+          <div class="sched-line">10:30 – 11:30 &nbsp;·&nbsp; 正念步行</div>
+          <div class="sched-loc">布魯克林大橋</div>
+        </div>
+        <div class="schedule-item">
+          <div class="sched-line">11:30 &nbsp;·&nbsp; 回向儀式</div>
+          <div class="sched-loc">市政廳公園</div>
         </div>
       </div>
     </div>
 
   </div>
 
-  <!-- RIGHT COLUMN (cream panel over photo) -->
+  <!-- RIGHT COLUMN -->
   <div class="right-col">
 
-    <!-- Schedule -->
-    <div class="schedule-heading">今 日 流 程</div>
+    <!-- 關於正念（移至右欄上方） -->
+    <div class="mindfulness-section">
+      <div class="section-heading">關 於 正 念</div>
+      <div class="mindfulness-text">
+        在繁忙的現代生活中，<strong>壓力與紛擾</strong>讓我們與內心的平靜漸行漸遠。<strong>正念修行</strong>，正是回歸自己的藝術——回到當下，回到內在的寧靜與安樂。此次活動將由<strong>富有修行經驗的法師</strong>親自引領，帶您在布魯克林大橋的每一步中，修習正念，重拾身心的清明與喜悅。
+      </div>
+    </div>
 
-    <div class="schedule-grid">
-      <div class="schedule-item">
-        <div class="sched-line">9:00 – 9:30 &nbsp;·&nbsp; 入場</div>
-        <div class="sched-loc">卡德曼廣場公園</div>
+    <!-- 正念與給予（新增） -->
+    <div class="giving-section">
+      <div class="section-heading">正 念 與 給 予</div>
+      <div class="giving-text">
+        慈悲與關愛，是每個人與生俱來的本質，是人性中最純真的光芒。然而，生活的煩惱與壓力，往往讓這份光芒隱伏難現。當我們透過正念與禪修，遠離焦慮與負面情緒，內心的慈悲自然而然地流露出來。因此，<strong>給予</strong>是這次活動不可或缺的一部分。
       </div>
-      <div class="schedule-item">
-        <div class="sched-line">9:30 – 10:30 &nbsp;·&nbsp; 開幕式 · 祈福儀式</div>
-        <div class="sched-loc"></div>
+      <div class="giving-highlight">
+        每有一位參與者完成步行，主辦方將捐出1美元，用以支持自閉症患者及其家庭。
       </div>
-      <div class="schedule-item">
-        <div class="sched-line">10:30 – 11:30 &nbsp;·&nbsp; 正念步行</div>
-        <div class="sched-loc">布魯克林大橋</div>
-      </div>
-      <div class="schedule-item">
-        <div class="sched-line">11:30 &nbsp;·&nbsp; 回向儀式</div>
-        <div class="sched-loc">市政廳公園</div>
+      <div class="donation-row">
+        <div class="donation-panel">
+          <div class="donation-panel-header">&#9825;&nbsp; 公益支持</div>
+          <div class="donation-qr-box">
+            <img src="../QR_code/autismspeaks_qr-code.png" alt="Autism Speaks">
+          </div>
+          <div class="donation-panel-text">Autism Speaks 自閉症機構</div>
+        </div>
+        <div class="donation-panel">
+          <div class="donation-panel-header">&#9825;&nbsp; 捐款支持 梵音寺</div>
+          <div class="donation-qr-box">
+            <img src="../QR_code/wba_zelle_qr-code.png" alt="梵音寺 Zelle">
+          </div>
+          <div class="donation-panel-text">掃碼捐款</div>
+          <div class="donation-panel-subtext">
+            Zelle: fanyintempleusa@gmail.com
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="section-divider"></div>
 
-    <!-- WBA section -->
+    <!-- 梵音寺介紹 -->
     <div class="wba-section">
 
-      <div class="wba-intro-heading">關於西方佛學會</div>
+      <div class="wba-intro-heading">關於普陀山紐約梵音寺</div>
       <div class="wba-intro-text">
-        西方佛學會（Western Buddhist Association, WBA）成立於 1998 年，是一所深耕於紐約市的非營利佛教機構。本會秉持漢傳佛教之優良傳統，於鬧市中開闢梵音寺作為清淨道場，不僅是修行者砥礪心靈的聖地，亦是文化傳承與社區服務的精神家園。
+        普陀山紐約梵音寺是一所立足紐約市的非營利佛教機構，秉持漢傳佛教之優良傳統，於鬧市中開闢清淨道場，不僅是修行者砥礪心靈的聖地，亦是文化傳承與社區服務的精神家園。
       </div>
 
       <div class="social-qr-row">
         <div class="qr-col">
           <div class="qr-platform-label">官方網站</div>
           <div class="qr-img-box">
-            <img src="../QR_code/website_qr-code.jpg" alt="WBA官方網站">
+            <img src="../QR_code/website_qr-code.jpg" alt="梵音寺官方網站">
           </div>
           <div class="qr-name-label">https://wba-nyc.org</div>
         </div>
@@ -353,31 +443,6 @@
             <img src="../QR_code/instagram_qr-code.jpg" alt="Instagram">
           </div>
           <div class="qr-name-label">@nybuddhistfestival</div>
-        </div>
-      </div>
-
-      <div class="donation-row">
-        <div class="donation-panel">
-          <div class="donation-panel-header">&#9825;&nbsp; 公益支持</div>
-          <div class="donation-qr-box">
-            <img src="../QR_code/autismspeaks_qr-code.png" alt="Autism Speaks">
-          </div>
-          <div class="donation-panel-text">協辦單位</div>
-          <div class="donation-panel-subtext">
-            每有一位參與者完成步行<br>
-            主辦方將捐出1美元<br>
-            用以支持自閉症患者及其家庭
-          </div>
-        </div>
-        <div class="donation-panel">
-          <div class="donation-panel-header">&#9825;&nbsp; 捐款支持 梵音寺</div>
-          <div class="donation-qr-box">
-            <img src="../QR_code/wba_zelle_qr-code.png" alt="梵音寺 Zelle">
-          </div>
-          <div class="donation-panel-text">掃碼捐款</div>
-          <div class="donation-panel-subtext">
-            Zelle: fanyintempleusa@gmail.com
-          </div>
         </div>
       </div>
 

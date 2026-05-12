@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A Mindful Walk for Wellness — 2026 Vertical Flyer 18×24</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --flyer-width: 18in;
+    --flyer-height: 24in;
+  }
+
+  body {
+    background-color: #1a1a1a;
+    display: flex; justify-content: center; align-items: flex-start;
+    min-height: 100vh; margin: 0; padding: 20px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+
+  .flyer {
+    width: var(--flyer-width);
+    height: var(--flyer-height);
+    background-color: #fdf8f0;
+    background-image: url('../2026_flyers/background_front.jpg');
+    background-size: 100% 100%;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    box-shadow: 0px 20px 60px rgba(0,0,0,0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-shrink: 0;
+    padding: 0.5in 0.45in 0.22in 0.45in;
+    color: #2c1810;
+  }
+
+  /* ── BROWSER PREVIEW ── */
+  @media screen {
+    .flyer-scaler {
+      width: 535px;
+      height: 714px;
+      overflow: hidden;
+      box-shadow: 0px 15px 40px rgba(0,0,0,0.8);
+    }
+    .flyer {
+      transform: scale(0.31);
+      transform-origin: top left;
+      box-shadow: none;
+    }
+  }
+
+  @media print {
+    @page { size: 18in 24in; margin: 0; }
+    html, body {
+      width: var(--flyer-width);
+      height: var(--flyer-height);
+      margin: 0 !important; padding: 0 !important;
+      background: transparent !important;
+    }
+    body {
+      display: block !important; min-height: auto !important;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    .flyer-scaler { display: contents; }
+    .flyer {
+      transform: none !important;
+      width: var(--flyer-width) !important;
+      height: var(--flyer-height) !important;
+      margin: 0 !important; position: absolute !important;
+      top: 0 !important; left: 0 !important;
+      box-shadow: none !important;
+      font-size: initial !important; line-height: normal !important;
+    }
+    .org-name, .festival-kicker, .festival-proof, .title-en, .event-datetime,
+    .sched-event, .sched-loc,
+    .subtitle-block, .subtitle-light,
+    .wba-intro-heading, .wba-intro-text,
+    .qr-platform-label, .qr-name-label,
+    .footer-note {
+      text-shadow: none !important;
+    }
+    .bottom-section {
+      box-shadow: none !important;
+    }
+  }
+
+  /* =========================================
+     TOP SECTION
+     ========================================= */
+  .top-section { text-align: center; z-index: 20; padding-top: 0.18in; }
+
+  .org-name {
+    font-size: 22pt;
+    letter-spacing: 0.12em;
+    color: #5c1420;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0.15in;
+    display: flex; align-items: center; justify-content: center; gap: 0.18in;
+    text-shadow: 0px 0px 25px rgba(255,255,255,0.95), 0px 0px 40px #fff;
+  }
+  .org-name img { height: 62pt; width: auto; object-fit: contain; }
+
+  .festival-kicker {
+    font-size: 16pt;
+    color: #b8860b;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.16in;
+    text-shadow: 0px 0px 20px rgba(255,255,255,0.95), 0px 0px 30px #fff;
+  }
+
+  .title-divider        { width: 8in; height: 3px; margin: 0 auto 0.2in auto;      background: linear-gradient(to right, transparent, #c8922a 20%, #c8922a 80%, transparent); }
+  .title-divider-bottom { width: 8in; height: 3px; margin: 0.12in auto 0.2in auto; background: linear-gradient(to right, transparent, #c8922a 20%, #c8922a 80%, transparent); }
+
+  .title-en {
+    font-size: 46pt;
+    color: #5c1420;
+    letter-spacing: 0.04em;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 1.15;
+    text-shadow: 0px 0px 35px rgba(255,255,255,0.8), 0px 0px 55px #fff;
+  }
+
+  .festival-proof {
+    font-size: 18pt;
+    color: #7b1f2e;
+    letter-spacing: 0.06em;
+    font-style: italic;
+    margin-top: 0.1in;
+    text-shadow: 0px 0px 18px rgba(255,255,255,0.95), 0px 0px 28px #fff;
+  }
+
+  .event-datetime {
+    font-size: 20pt;
+    color: #5c1420;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.15in;
+    text-shadow: 0px 0px 20px rgba(255,255,255,0.9), 0px 0px 30px #fff;
+  }
+
+  .schedule-grid { display: flex; align-items: flex-start; justify-content: center; }
+  .schedule-item { flex: 1; text-align: center; padding: 0 0.28in; }
+  .schedule-divider {
+    display: flex; align-items: center; padding-top: 0.03in; flex-shrink: 0;
+    color: #c8922a; font-size: 32pt; line-height: 1;
+  }
+  .sched-event {
+    font-size: 18pt; color: #5c1420; font-weight: bold;
+    line-height: 1.4; letter-spacing: 0.03em; margin-bottom: 0.07in;
+    text-shadow: 0px 0px 18px rgba(255,255,255,0.9), 0px 0px 28px #fff;
+  }
+  .sched-loc {
+    font-size: 15pt; color: #7b1f2e; letter-spacing: 0.04em; font-style: italic;
+    text-shadow: 0px 0px 15px rgba(255,255,255,0.9), 0px 0px 25px #fff;
+  }
+
+  /* Subtitle + Eventbrite QR row */
+  .subtitle-row {
+    display: flex;
+    align-items: center;
+    gap: 0.32in;
+    margin-top: 0.15in;
+    margin-bottom: 0in;
+    padding-right: 1.8in;
+  }
+  .subtitle-row .subtitle-block {
+    flex: 1;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .subtitle-block {
+    font-size: 24pt;
+    color: #5c1420;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    line-height: 1.55;
+    text-shadow: 0px 0px 20px rgba(255,255,255,0.9), 0px 0px 30px #fff;
+  }
+  .subtitle-light {
+    font-weight: normal;
+    font-size: 19pt;
+    font-style: italic;
+    letter-spacing: 0.03em;
+    display: block;
+    margin-bottom: 0.05in;
+  }
+
+  .eventbrite-qr-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    padding: 0;
+    text-decoration: none;
+  }
+  .eventbrite-qr-label {
+    font-size: 15pt;
+    color: #b8860b;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 0.1in;
+  }
+  .eventbrite-qr-img-box {
+    width: 1.8in; height: 1.8in;
+    border-radius: 10px; overflow: hidden;
+    border: 2px solid rgba(200, 146, 42, 0.35);
+    margin-bottom: 0.08in;
+  }
+  .eventbrite-qr-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .eventbrite-qr-text {
+    font-size: 13pt;
+    color: #5c1420;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+
+  /* =========================================
+     BOTTOM SECTION
+     ========================================= */
+  .bottom-section {
+    z-index: 10;
+    background: rgba(253, 248, 240, 0.94);
+    border-radius: 16px;
+    border: 2px solid rgba(200, 146, 42, 0.5);
+    padding: 0.1in 0.2in 0.1in 0.2in;
+    margin: 0 0.3in 0.34in 0.3in;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bottom-columns {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0.14in;
+  }
+
+  .bottom-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.06in;
+  }
+
+  .wba-intro-box {
+    background: rgba(253, 248, 240, 0.6);
+    border: 1px solid rgba(200, 146, 42, 0.35);
+    border-radius: 10px;
+    padding: 0.08in 0.16in;
+    flex-shrink: 0;
+  }
+  .wba-intro-heading {
+    font-size: 18pt;
+    color: #b8860b;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-bottom: 0.06in;
+  }
+  .wba-intro-text {
+    font-size: 15pt;
+    color: #5c1420;
+    line-height: 1.85;
+    letter-spacing: 0.02em;
+    text-align: justify;
+  }
+
+  .wba-qr-row {
+    display: flex; gap: 0.14in; align-items: stretch;
+  }
+  .qr-col {
+    flex: 1;
+    display: flex; flex-direction: column; align-items: center;
+    background: rgba(253, 248, 240, 0.72);
+    border: 1px solid rgba(200, 146, 42, 0.35);
+    border-radius: 10px;
+    padding: 0.07in 0.1in;
+  }
+  .qr-platform-label {
+    font-size: 13pt;
+    color: #b8860b;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 0.06in;
+  }
+  .qr-img-box {
+    width: 1.4in; height: 1.4in;
+    border-radius: 7px; overflow: hidden;
+    border: 2px solid rgba(200, 146, 42, 0.35);
+    margin-bottom: 0.05in;
+  }
+  .qr-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .qr-name-label {
+    font-size: 12pt;
+    color: #5c1420;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+    line-height: 1.45;
+    text-align: center;
+  }
+
+  /* Right column: Autism Speaks */
+  .autism-panel {
+    flex: 0 0 4.8in;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center;
+    background: rgba(253, 248, 240, 0.72);
+    border: 1px solid rgba(200, 146, 42, 0.35);
+    border-radius: 10px;
+    padding: 0.08in 0.18in;
+    text-align: center;
+  }
+  .autism-header {
+    font-size: 16pt;
+    color: #b8860b;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 0.06in;
+  }
+  .autism-desc {
+    font-size: 15pt; color: #5c1420;
+    line-height: 1.75; letter-spacing: 0.02em;
+    margin-bottom: 0.12in;
+  }
+  .autism-qr-wrap {
+    width: 1.7in; height: 1.7in;
+    border-radius: 8px; overflow: hidden;
+    border: 1.5px solid rgba(200, 146, 42, 0.45);
+    margin-bottom: 0.06in;
+    flex-shrink: 0;
+  }
+  .autism-qr-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .autism-coorg {
+    font-size: 13pt; color: #b8860b; font-weight: bold;
+    letter-spacing: 0.08em;
+  }
+
+  .section-divider {
+    width: 100%; height: 1.5px;
+    background: linear-gradient(to right, transparent, #c8922a 15%, #c8922a 85%, transparent);
+    margin: 0.06in 0; opacity: 0.7;
+  }
+
+  .footer-note {
+    font-size: 14pt; color: #5c1420; font-weight: bold;
+    letter-spacing: 0.06em; text-align: center;
+    line-height: 1.9;
+  }
+</style>
+</head>
+<body>
+
+<div class="flyer-scaler">
+<div class="flyer">
+
+  <!-- TOP SECTION -->
+  <div class="top-section">
+
+    <div class="org-name">
+      <img src="../co-organizer_logo/logo_wba.jpg" alt="WBA">
+      Western Buddhist Association
+    </div>
+
+    <div class="festival-kicker">2nd Annual New York Buddhist Cultural Festival</div>
+
+    <div class="title-divider"></div>
+
+    <div class="title-en">A Mindful Walk for Wellness</div>
+
+    <div class="festival-proof">Returning after 1,000+ joined last year</div>
+
+    <div class="title-divider-bottom"></div>
+
+    <div class="event-datetime">Saturday, May 16, 2026 &nbsp;|&nbsp; 9:00 AM &ndash; 12:00 PM</div>
+
+    <div class="schedule-grid">
+      <div class="schedule-item">
+        <div class="sched-event">Opening Blessing &amp; Mindfulness Guidance</div>
+        <div class="sched-loc">Cadman Plaza Park</div>
+      </div>
+      <div class="schedule-divider">&#8594;</div>
+      <div class="schedule-item">
+        <div class="sched-event">Mindful Walk Across the Brooklyn Bridge</div>
+        <div class="sched-loc">Brooklyn Bridge</div>
+      </div>
+    </div>
+
+    <div class="subtitle-row">
+      <div class="subtitle-block">
+        <span class="subtitle-light">Open to the public &bull; All are warmly welcome</span>
+        Experience a guided mindful walk across the Brooklyn Bridge.
+      </div>
+      <a class="eventbrite-qr-panel" href="https://www.eventbrite.com/e/a-mindful-walk-for-wellness-tickets-1988139236977?aff=oddtdtcreator">
+        <div class="eventbrite-qr-label">Register</div>
+        <div class="eventbrite-qr-img-box">
+          <img src="../QR_code/eventbrite_qr-code_english.jpg" alt="Eventbrite English Registration QR">
+        </div>
+        <div class="eventbrite-qr-text">Eventbrite</div>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM SECTION -->
+  <div class="bottom-section">
+
+    <div class="bottom-columns">
+
+      <!-- Left: WBA intro + website & Zelle QR codes -->
+      <div class="bottom-left">
+        <div class="wba-intro-box">
+          <div class="wba-intro-heading">About WBA</div>
+          <div class="wba-intro-text">
+            The Western Buddhist Association (WBA) is a non-profit Buddhist organization founded in New York City in 1998. Rooted in the traditions of Chinese Buddhism, WBA operates Fanyin Temple — a place of spiritual practice, cultural celebration, and community service in the heart of New York. We share the teachings of the Buddha, foster interfaith dialogue, and serve the broader community through compassionate action.
+          </div>
+        </div>
+        <div class="wba-qr-row">
+          <div class="qr-col">
+            <div class="qr-platform-label">Our Website</div>
+            <div class="qr-img-box">
+              <img src="../QR_code/website_qr-code.jpg" alt="WBA Official Website">
+            </div>
+            <div class="qr-name-label">https://wba-nyc.org</div>
+          </div>
+          <div class="qr-col">
+            <div class="qr-platform-label">&#9825;&nbsp; Support WBA</div>
+            <div class="qr-img-box">
+              <img src="../QR_code/wba_zelle_qr-code.png" alt="WBA Zelle Donation">
+            </div>
+            <div class="qr-name-label">Scan to Donate<br><span style="font-size:10pt; font-weight:normal;">Zelle: fanyintempleusa@gmail.com</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Autism Speaks panel -->
+      <div class="autism-panel">
+        <div class="autism-header">&#9825;&nbsp; Community Giving</div>
+        <div class="autism-desc">For each completed walk, a $1 donation will be made to support individuals with autism and their families.</div>
+        <div class="autism-qr-wrap">
+          <img src="../QR_code/autismspeaks_qr-code.png" alt="Autism Speaks">
+        </div>
+        <div class="autism-coorg">Co-Organizer &nbsp;&middot;&nbsp; Autism Speaks</div>
+      </div>
+
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="footer-note">
+      Fanyin Temple &middot; hello@wba-nyc.org &middot; 718-686-7606<br>
+      5601 Fort Hamilton Parkway, Brooklyn, NY 11219
+    </div>
+
+  </div>
+
+</div>
+</div>
+</body>
+</html>

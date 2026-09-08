@@ -314,12 +314,43 @@
     .recognition-intro p { color: var(--text-mid); font-size: 1rem; margin-bottom: 0.7rem; }
     .recognition-intro p.zh { font-family: 'STSong', 'SimSun', serif; letter-spacing: 0.05em; }
 
+    .recognition-feature {
+      max-width: 900px; margin: 0 auto 3rem; text-align: center;
+    }
+    .recognition-feature img {
+      width: 100%; height: auto; display: block;
+      border-radius: 4px; cursor: pointer;
+    }
+    .recognition-feature figcaption {
+      margin-top: 0.75rem; color: var(--text-mid);
+      font-size: 0.88rem; line-height: 1.6;
+    }
+    .recognition-feature .src {
+      display: block; margin-top: 0.25rem;
+      color: var(--text-light); font-size: 0.78rem; letter-spacing: 0.04em;
+    }
+    .recognition-feature .zh {
+      display: block; font-family: 'STSong', 'SimSun', serif; letter-spacing: 0.05em;
+    }
+    .summit-block { margin-top: 3.5rem; }
+    .summit-lede {
+      max-width: 720px; margin: 0 auto 1.6rem; text-align: center;
+    }
+    .summit-lede p { color: var(--text-mid); font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .summit-lede p.zh { font-family: 'STSong', 'SimSun', serif; letter-spacing: 0.05em; }
+    .summit-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+    }
+    .summit-grid .photo-item:first-child { grid-column: span 4; aspect-ratio: 16/9; }
+
     .roster-group + .roster-group { margin-top: 2.5rem; }
+    .summit-block > h3,
     .roster-group > h3 {
       text-align: center; color: var(--gold); font-size: 0.78rem;
       letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
       margin-bottom: 1.4rem;
     }
+    .summit-block > h3 .zh,
     .roster-group > h3 .zh {
       font-family: 'STSong', 'SimSun', serif; text-transform: none; letter-spacing: 0.1em;
     }
@@ -477,6 +508,8 @@
       .recognition-layout { grid-template-columns: 1fr; }
       .recognition-photos { grid-template-columns: 1fr 1fr; }
       .recognition-docs { grid-template-columns: 1fr; max-width: 420px; }
+      .summit-grid { grid-template-columns: repeat(2, 1fr); }
+      .summit-grid .photo-item:first-child { grid-column: span 2; }
       .roster-list { gap: 1rem 1.25rem; }
       .photo-item.featured { grid-column: span 1; }
       .timeline-img { width: 140px; }
@@ -862,6 +895,15 @@
       <p class="zh">西方佛教协会在跨宗教对话与社区服务方面的工作，已获得联邦、州、市各级民选官员的正式表彰，并得到北美与亚洲佛教团体的认可。</p>
     </div>
 
+    <figure class="recognition-feature">
+      <img src="images/faith%20leadership%20and%20recognition/web/2025_reception_governor-640.jpg" srcset="images/faith%20leadership%20and%20recognition/web/2025_reception_governor-640.jpg 640w, images/faith%20leadership%20and%20recognition/web/2025_reception_governor-1400.jpg 1400w" sizes="(max-width: 768px) 92vw, 900px" alt="Venerable Chang Kuan with Governor Kathy Hochul and Buddhist faith leaders of New York State at the 2025 Interfaith Reception" loading="lazy" onclick="openLightbox('recognition',2)" onerror="this.closest('figure').style.display='none'">
+      <figcaption>
+        &ldquo;Governor Kathy Hochul is taking pictures with the Buddhist Faith Leaders of New York State&rdquo; — with Venerable Chang Kuan, Abbot and President of the Western Buddhist Association, at the 2025 Interfaith Reception.
+        <span class="zh">西方佛教协会会长常宽法师于2025年跨信仰招待会上，与州长霍楚尔及纽约州佛教界领袖合影。</span>
+        <span class="src">Source: NYS Office of Faith &amp; Nonprofit Development Services, August 2025 newsletter</span>
+      </figcaption>
+    </figure>
+
     <div class="recognition-roster">
       <div class="roster-group">
         <h3>Letters of Recognition from Elected Officials <span class="zh">· 民选官员贺信</span></h3>
@@ -946,6 +988,36 @@
         </div>
         <figcaption>NYS Office of Faith &amp; Nonprofit Services, Aug 2025 &middot; 纽约州简报</figcaption>
       </figure>
+    </div>
+
+    <div class="summit-block">
+      <h3>2026 New York Interfaith Summit <span class="zh">· 2026 纽约跨信仰峰会</span></h3>
+      <div class="summit-lede">
+        <p>Most recently, the Western Buddhist Association joined faith leaders from across New York State at the <em>One New York</em> Interfaith Summit, convened by the New York State Office of Faith &amp; Nonprofit Development Services — among them Rev. James A. Lynch, Jr. and Rev. Doyeon Park of the Buddhist Council of New York, and Cloe Andrade, Programs and Initiatives Manager at the Office.</p>
+        <p class="zh">近期，西方佛教协会应邀出席由纽约州信仰与非营利发展服务办公室召集的「同一个纽约」跨信仰峰会，与全州各信仰领袖共聚一堂，包括纽约佛教理事会会长 Rev. James A. Lynch, Jr.、前任会长 Rev. Doyeon Park，以及该办公室项目经理 Cloe Andrade。</p>
+      </div>
+      <div class="photo-grid summit-grid" id="summitGrid">
+        <div class="photo-item" onclick="openLightbox('summit',0)">
+          <img src="images/faith%20leadership%20and%20recognition/web/summit_governor_group-640.jpg" srcset="images/faith%20leadership%20and%20recognition/web/summit_governor_group-640.jpg 640w, images/faith%20leadership%20and%20recognition/web/summit_governor_group-1400.jpg 1400w" sizes="(max-width: 768px) 92vw, 1000px" alt="Faith leaders with Governor Kathy Hochul at the One New York Interfaith Summit" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+          <div class="overlay"><span>With Governor Kathy Hochul &middot; 与州长霍楚尔合影</span></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox('summit',1)">
+          <img src="images/faith%20leadership%20and%20recognition/web/summit_governor_podium-640.jpg" srcset="images/faith%20leadership%20and%20recognition/web/summit_governor_podium-640.jpg 640w, images/faith%20leadership%20and%20recognition/web/summit_governor_podium-1400.jpg 1400w" sizes="(max-width: 768px) 45vw, 250px" alt="Governor Kathy Hochul addressing faith leaders at the One New York Interfaith Summit" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+          <div class="overlay"><span>The Governor Addresses the Summit &middot; 州长致辞</span></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox('summit',2)">
+          <img src="images/faith%20leadership%20and%20recognition/web/summit_panel-640.jpg" srcset="images/faith%20leadership%20and%20recognition/web/summit_panel-640.jpg 640w, images/faith%20leadership%20and%20recognition/web/summit_panel-1400.jpg 1400w" sizes="(max-width: 768px) 45vw, 250px" alt="Panel discussion at the One New York Interfaith Summit, convened by the NYS Office of Faith and Nonprofit Development Services" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+          <div class="overlay"><span>Summit Panel &middot; 峰会座谈</span></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox('summit',3)">
+          <img src="images/faith%20leadership%20and%20recognition/web/summit_delegates-640.jpg" srcset="images/faith%20leadership%20and%20recognition/web/summit_delegates-640.jpg 640w, images/faith%20leadership%20and%20recognition/web/summit_delegates-1400.jpg 1400w" sizes="(max-width: 768px) 45vw, 250px" alt="Delegates in conversation at the One New York Interfaith Summit" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+          <div class="overlay"><span>At the Summit &middot; 峰会现场</span></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox('summit',4)">
+          <img src="images/faith%20leadership%20and%20recognition/web/summit_faith_leaders-640.jpg" srcset="images/faith%20leadership%20and%20recognition/web/summit_faith_leaders-640.jpg 640w, images/faith%20leadership%20and%20recognition/web/summit_faith_leaders-1400.jpg 1400w" sizes="(max-width: 768px) 45vw, 250px" alt="Faith leaders from several traditions at the One New York Interfaith Summit" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+          <div class="overlay"><span>Faith Leaders &middot; 各信仰领袖</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1317,6 +1389,14 @@
     recognition: [
       {src: 'images/faith leadership and recognition/web/Greeting Letters贺信-1400.jpg', cap: 'Greeting Letters · 贺信'},
       {src: 'images/faith leadership and recognition/web/Department of State August 2025 newsletter-1400.jpg', cap: 'DOS Newsletter · 简报'},
+      {src: 'images/faith leadership and recognition/web/2025_reception_governor-1400.jpg', cap: 'Venerable Chang Kuan with Governor Kathy Hochul · 2025 Interfaith Reception · 2025年跨信仰招待会'},
+    ],
+    summit: [
+      {src: 'images/faith leadership and recognition/web/summit_governor_group-1400.jpg', cap: 'Faith leaders with Governor Kathy Hochul · 与纽约州州长霍楚尔合影'},
+      {src: 'images/faith leadership and recognition/web/summit_governor_podium-1400.jpg', cap: 'Governor Kathy Hochul addresses the Summit · 州长致辞'},
+      {src: 'images/faith leadership and recognition/web/summit_panel-1400.jpg', cap: 'Summit panel · 峰会座谈'},
+      {src: 'images/faith leadership and recognition/web/summit_delegates-1400.jpg', cap: 'At the Summit · 峰会现场'},
+      {src: 'images/faith leadership and recognition/web/summit_faith_leaders-1400.jpg', cap: 'Faith leaders · 各信仰领袖'},
     ],
     history: [
       {src: 'images/history/web/1998年梵音寺建成地下室-1400.jpg', cap: '建成地下室 1998 · Basement Completed'},

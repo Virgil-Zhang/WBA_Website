@@ -235,6 +235,57 @@
     .festival-intro p { color: var(--text-mid); font-size: 0.97rem; }
     .festival-intro p.zh { font-family: 'STSong', 'SimSun', serif; letter-spacing: 0.05em; }
 
+    /* ───── MINDFUL WALK 2026 ───── */
+    #mindfulwalk { background: var(--warm-white); }
+    .walk-eyebrow {
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--text-light);
+      font-style: italic;
+      margin: -2.5rem auto 3rem;
+    }
+    .walk-eyebrow .zh { font-style: normal; letter-spacing: 0.12em; }
+    .walk-detail {
+      display: grid; grid-template-columns: 0.85fr 1.15fr;
+      gap: 2.5rem; align-items: start;
+      margin-bottom: 3rem;
+    }
+    .walk-poster {
+      width: 100%; display: block; cursor: pointer;
+      border: 2px solid var(--border); border-radius: 4px;
+      transition: border-color 0.25s;
+    }
+    .walk-poster:hover { border-color: var(--gold); }
+    .walk-schedule h3 {
+      color: var(--burgundy); font-size: 1.15rem;
+      margin-bottom: 1rem; padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .walk-schedule h3 .zh { color: var(--text-mid); font-size: 1rem; margin-left: 0.5rem; }
+    .schedule-row {
+      display: grid; grid-template-columns: 120px 1fr;
+      gap: 1rem; align-items: baseline;
+      padding: 0.65rem 0;
+      border-bottom: 1px dashed var(--border);
+    }
+    .schedule-row:last-child { border-bottom: none; }
+    .schedule-time {
+      color: var(--gold); font-size: 0.82rem;
+      font-weight: bold; letter-spacing: 0.06em;
+    }
+    .schedule-what { color: var(--text-mid); font-size: 0.95rem; line-height: 1.5; }
+    .schedule-what .zh { font-family: 'STSong', 'SimSun', serif; letter-spacing: 0.05em; }
+    .schedule-where { display: block; color: var(--text-light); font-size: 0.78rem; font-style: italic; }
+    .walk-giving {
+      background: var(--cream);
+      border-left: 3px solid var(--gold);
+      padding: 1.1rem 1.4rem;
+      margin-top: 1.5rem;
+    }
+    .walk-giving p { color: var(--text-mid); font-size: 0.92rem; margin-bottom: 0.4rem; }
+    .walk-giving p:last-child { margin-bottom: 0; }
+    .walk-giving p.zh { font-family: 'STSong', 'SimSun', serif; letter-spacing: 0.05em; }
+
     /* ───── FORUM ───── */
     #forum { background: var(--warm-white); }
     .forum-layout {
@@ -368,10 +419,14 @@
     footer a { color: var(--gold); text-decoration: none; }
 
     /* ───── RESPONSIVE ───── */
-    @media (max-width: 768px) {
+    /* nav collapses earlier than the rest of the layout: 7 bilingual links
+       overflow the bar well before 768px */
+    @media (max-width: 980px) {
       .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--deep-red); padding: 1rem; }
       .nav-links.open { display: flex; }
       .hamburger { display: flex; }
+    }
+    @media (max-width: 768px) {
       .about-grid { grid-template-columns: 1fr; }
       .about-highlights { grid-template-columns: 1fr 1fr; }
       .festival-intro { grid-template-columns: 1fr; }
@@ -380,9 +435,13 @@
       .recognition-photos { grid-template-columns: 1fr 1fr; }
       .photo-item.featured { grid-column: span 1; }
       .timeline-img { width: 140px; }
+      .walk-detail { grid-template-columns: 1fr; }
+      .walk-poster { max-width: 420px; margin: 0 auto; }
+      .walk-eyebrow { margin-top: -2rem; }
     }
     @media (max-width: 480px) {
       .about-highlights { grid-template-columns: 1fr; }
+      .schedule-row { grid-template-columns: 1fr; gap: 0.15rem; }
     }
   </style>
 </head>
@@ -400,6 +459,7 @@
   <div class="nav-links" id="navLinks">
     <a href="#about">About 关于</a>
     <a href="#festival">Festival 文化节</a>
+    <a href="#mindfulwalk">Mindful Walk 正念步行</a>
     <a href="#forum">Forum 论坛</a>
     <a href="#recognition">Recognition 荣誉</a>
     <a href="#history">History 历史</a>
@@ -496,64 +556,194 @@
 
     <div class="photo-grid" id="festivalGrid">
       <div class="photo-item featured" onclick="openLightbox('festival',0)">
-        <img src="images/festival/1.jpg" alt="2025 Buddhist Culture Festival" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <img src="images/2025 Festival/1.jpg" alt="2025 Buddhist Culture Festival" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
         <div class="overlay"><span>2025 NY Buddhist Culture Festival &middot; 2025年纽约佛教文化节</span></div>
       </div>
       <div class="photo-item" onclick="openLightbox('festival',1)">
-        <img src="images/festival/2.jpg" alt="Festival Ceremony" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <img src="images/2025 Festival/2.jpg" alt="Festival Ceremony" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
         <div class="overlay"><span>Festival Ceremony &middot; 法会仪式</span></div>
       </div>
       <div class="photo-item" onclick="openLightbox('festival',2)">
-        <img src="images/festival/4.jpg" alt="Cultural Celebration" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <img src="images/2025 Festival/4.jpg" alt="Cultural Celebration" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
         <div class="overlay"><span>Cultural Celebration &middot; 文化庆典</span></div>
       </div>
       <div class="photo-item" onclick="openLightbox('festival',3)">
-        <img src="images/festival/5.jpg" alt="Dharma Teaching" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <img src="images/2025 Festival/5.jpg" alt="Dharma Teaching" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
         <div class="overlay"><span>Dharma Teaching &middot; 佛法传授</span></div>
       </div>
       <div class="photo-item" onclick="openLightbox('festival',4)">
-        <img src="images/festival/6.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <img src="images/2025 Festival/6.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
         <div class="overlay"><span>Festival Moments &middot; 节日瞬间</span></div>
       </div>
       <div class="photo-item" onclick="openLightbox('festival',5)">
-        <img src="images/festival/7.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <img src="images/2025 Festival/7.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
         <div class="overlay"><span>Festival Moments &middot; 节日瞬间</span></div>
       </div>
       <div class="photo-item" onclick="openLightbox('festival',6)">
-        <img src="images/festival/8.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <img src="images/2025 Festival/8.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
         <div class="overlay"><span>Festival Moments &middot; 节日瞬间</span></div>
       </div>
       <div class="photo-item" onclick="openLightbox('festival',7)">
-        <img src="images/festival/9.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <img src="images/2025 Festival/9.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
         <div class="overlay"><span>Festival Moments &middot; 节日瞬间</span></div>
       </div>
       <div class="photo-item" onclick="openLightbox('festival',8)">
-        <img src="images/festival/10.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <img src="images/2025 Festival/10.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
         <div class="overlay"><span>Festival Moments &middot; 节日瞬间</span></div>
       </div>
       <div class="photo-item" onclick="openLightbox('festival',9)">
-        <img src="images/festival/11.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <img src="images/2025 Festival/11.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
         <div class="overlay"><span>Festival Moments &middot; 节日瞬间</span></div>
       </div>
       <div class="photo-item" onclick="openLightbox('festival',10)">
-        <img src="images/festival/12.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <img src="images/2025 Festival/12.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
         <div class="overlay"><span>Festival Moments &middot; 节日瞬间</span></div>
       </div>
       <div class="photo-item" onclick="openLightbox('festival',11)">
-        <img src="images/festival/13.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <img src="images/2025 Festival/13.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
         <div class="overlay"><span>Festival Moments &middot; 节日瞬间</span></div>
       </div>
       <div class="photo-item" onclick="openLightbox('festival',12)">
-        <img src="images/festival/14.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <img src="images/2025 Festival/14.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
         <div class="overlay"><span>Festival Moments &middot; 节日瞬间</span></div>
       </div>
       <div class="photo-item" onclick="openLightbox('festival',13)">
-        <img src="images/festival/15.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <img src="images/2025 Festival/15.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
         <div class="overlay"><span>Festival Moments &middot; 节日瞬间</span></div>
       </div>
       <div class="photo-item" onclick="openLightbox('festival',14)">
-        <img src="images/festival/16.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <img src="images/2025 Festival/16.jpg" alt="Festival Moments" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
         <div class="overlay"><span>Festival Moments &middot; 节日瞬间</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MINDFUL WALK 2026 -->
+<section id="mindfulwalk">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="label">2026 Highlight &middot; 2026年亮点</div>
+      <h2>A Mindful Walk for Wellness</h2>
+      <div class="h2-zh">正念步行 &middot; 身心安乐</div>
+      <div class="divider"></div>
+    </div>
+
+    <p class="walk-eyebrow">
+      2nd Annual New York Buddhist Cultural Festival &nbsp;&middot;&nbsp;
+      <span class="zh">第二届纽约佛教文化节</span><br>
+      Saturday, May 16, 2026 &nbsp;&middot;&nbsp; 9:00 AM &ndash; 12:00 PM
+    </p>
+
+    <div class="festival-intro">
+      <p>On May 16, 2026, the Western Buddhist Association held its second New York Buddhist Cultural Festival — <em>A Mindful Walk for Wellness</em>. More than a thousand people gathered at Cadman Plaza Park in Brooklyn for live mindful music, an opening blessing led by Venerable Masters, and a guided mindful walk across the Brooklyn Bridge, concluding with a dedication of merits at City Hall Park.</p>
+      <p>By bringing people together in one of New York City's most iconic public spaces, the walk carried a simple but important message: when we cultivate a calmer and clearer mind, we are better able to care for others and turn compassion into action.</p>
+      <p class="zh">2026年5月16日，西方佛教协会举办第二届纽约佛教文化节——「正念步行 · 身心安乐」。逾千名参与者齐聚布鲁克林卡德曼广场公园，在现场正念音乐与法师带领的开幕祈福之后，一同正念走过布鲁克林大桥，最后于市政厅公园回向圆满。</p>
+      <p class="zh">活动选在纽约极具代表性的公共空间举行，传达一个简单却重要的理念：当内心更加平静清明，我们便更有能力关怀他人，并将慈悲真正落实为行动。</p>
+    </div>
+
+    <div class="walk-detail">
+      <img src="images/2026 Mindful Walk/1.flyer.JPG" alt="A Mindful Walk for Wellness event banner at Cadman Plaza Park"
+           class="walk-poster" loading="lazy"
+           onclick="openLightbox('mindfulwalk',0)"
+           onerror="this.style.display='none'">
+
+      <div class="walk-schedule">
+        <h3>Program of the Day <span class="zh">当日流程</span></h3>
+
+        <div class="schedule-row">
+          <div class="schedule-time">9:00 &ndash; 9:30</div>
+          <div class="schedule-what">
+            Mindfulness Music <span class="zh">现场正念音乐</span>
+            <span class="schedule-where">Cadman Plaza Park &middot; 卡德曼广场公园</span>
+          </div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-time">9:30 &ndash; 10:00</div>
+          <div class="schedule-what">
+            Opening Ceremony <span class="zh">开幕典礼</span>
+          </div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-time">10:00 &ndash; 10:30</div>
+          <div class="schedule-what">
+            Blessing Ceremony <span class="zh">祈福洒净</span>
+          </div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-time">10:30 &ndash; 11:30</div>
+          <div class="schedule-what">
+            Mindful Walk <span class="zh">正念步行</span>
+            <span class="schedule-where">Brooklyn Bridge &middot; 布鲁克林大桥 &middot; ≈ 1.1 mi / 1.8 km</span>
+          </div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-time">11:30</div>
+          <div class="schedule-what">
+            Dedication of Merits <span class="zh">回向圆满</span>
+            <span class="schedule-where">City Hall Park &middot; 市政厅公园</span>
+          </div>
+        </div>
+
+        <div class="walk-giving">
+          <p><strong>Mindfulness &amp; Giving</strong> — For every participant who completed the walk, the Western Buddhist Association donated <strong>$1 to Project Ready</strong> in support of individuals with autism and their families.</p>
+          <p class="zh"><strong>正念与布施</strong> —— 每有一位参与者完成全程步行，西方佛教协会即捐出 1 美元予 Project Ready，用于支持自闭症患者及其家庭。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="photo-grid" id="walkGrid">
+      <div class="photo-item featured" onclick="openLightbox('mindfulwalk',1)">
+        <img src="images/2026 Mindful Walk/2.volunteers_group_photo.JPG" alt="Venerable Masters and participants gather at Cadman Plaza Park" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <div class="overlay"><span>Gathering at Cadman Plaza Park &middot; 卡德曼广场公园集合</span></div>
+      </div>
+      <div class="photo-item" onclick="openLightbox('mindfulwalk',2)">
+        <img src="images/2026 Mindful Walk/3.opening_mindful_music.JPG" alt="Live mindful music opening the event" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <div class="overlay"><span>Opening Mindful Music &middot; 开幕正念音乐</span></div>
+      </div>
+      <div class="photo-item" onclick="openLightbox('mindfulwalk',3)">
+        <img src="images/2026 Mindful Walk/4.autism_teenager_performance.JPG" alt="Performance by young people with autism" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <div class="overlay"><span>Performance by Youth with Autism &middot; 自闭症青少年表演</span></div>
+      </div>
+      <div class="photo-item" onclick="openLightbox('mindfulwalk',4)">
+        <img src="images/2026 Mindful Walk/5.sound_meditation.JPG" alt="Venerable Masters leading sound meditation and blessing" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <div class="overlay"><span>Sound Meditation &amp; Blessing &middot; 钵音禅修与祈福</span></div>
+      </div>
+      <div class="photo-item" onclick="openLightbox('mindfulwalk',5)">
+        <img src="images/2026 Mindful Walk/6.sound_meditation_audience.JPG" alt="Participants in silent practice with palms joined" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <div class="overlay"><span>A Moment of Stillness &middot; 静心一刻</span></div>
+      </div>
+      <div class="photo-item" onclick="openLightbox('mindfulwalk',6)">
+        <img src="images/2026 Mindful Walk/7.blessed_water.JPG" alt="Blessing with purified water" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <div class="overlay"><span>Blessing with Purified Water &middot; 洒净祈福</span></div>
+      </div>
+      <div class="photo-item" onclick="openLightbox('mindfulwalk',7)">
+        <img src="images/2026 Mindful Walk/8.mindful_walk_start.JPG" alt="The mindful walk sets off from Cadman Plaza Park" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <div class="overlay"><span>The Walk Begins &middot; 正念步行启程</span></div>
+      </div>
+      <div class="photo-item" onclick="openLightbox('mindfulwalk',8)">
+        <img src="images/2026 Mindful Walk/9.mindful_walk_brooklyn_bridge.JPG" alt="Walkers crossing the Brooklyn Bridge" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <div class="overlay"><span>Crossing the Brooklyn Bridge &middot; 走过布鲁克林大桥</span></div>
+      </div>
+      <div class="photo-item" onclick="openLightbox('mindfulwalk',9)">
+        <img src="images/2026 Mindful Walk/10.mindful_walk_reaction1.JPG" alt="Walkers and passers-by on the bridge promenade" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <div class="overlay"><span>Walking Together &middot; 桥上同行</span></div>
+      </div>
+      <div class="photo-item" onclick="openLightbox('mindfulwalk',10)">
+        <img src="images/2026 Mindful Walk/11.mindful_walk_reaction2.JPG" alt="Smiles along the Brooklyn Bridge promenade" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <div class="overlay"><span>Along the Promenade &middot; 步道上的笑容</span></div>
+      </div>
+      <div class="photo-item" onclick="openLightbox('mindfulwalk',11)">
+        <img src="images/2026 Mindful Walk/12.mindful_walk_reaction3.JPG" alt="New Yorkers joining palms as the walk passes" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <div class="overlay"><span>Shared Blessings &middot; 途中的祝福</span></div>
+      </div>
+      <div class="photo-item" onclick="openLightbox('mindfulwalk',12)">
+        <img src="images/2026 Mindful Walk/13.mindful_walk_finish.JPG" alt="The procession approaching Manhattan" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <div class="overlay"><span>Approaching Manhattan &middot; 抵达曼哈顿</span></div>
+      </div>
+      <div class="photo-item" onclick="openLightbox('mindfulwalk',13)">
+        <img src="images/2026 Mindful Walk/14.conclude_at_city_hall.JPG" alt="Dedication of merits at City Hall Park" loading="lazy" onerror="this.closest('.photo-item').style.display='none'">
+        <div class="overlay"><span>Dedication of Merits at City Hall Park &middot; 市政厅公园回向</span></div>
       </div>
     </div>
   </div>
@@ -964,21 +1154,37 @@
   /* LIGHTBOX */
   const galleries = {
     festival: [
-      {src: 'images/festival/1.jpg', cap: 'Buddhist Culture Festival 2025 · 2025年纽约佛教文化节'},
-      {src: 'images/festival/2.jpg', cap: 'Festival Ceremony · 法会仪式'},
-      {src: 'images/festival/4.jpg', cap: 'Cultural Celebration · 文化庆典'},
-      {src: 'images/festival/5.jpg', cap: 'Dharma Teaching · 佛法传授'},
-      {src: 'images/festival/6.jpg', cap: 'Festival Moments · 节日瞬间'},
-      {src: 'images/festival/7.jpg', cap: 'Festival Moments · 节日瞬间'},
-      {src: 'images/festival/8.jpg', cap: 'Festival Moments · 节日瞬间'},
-      {src: 'images/festival/9.jpg', cap: 'Festival Moments · 节日瞬间'},
-      {src: 'images/festival/10.jpg', cap: 'Festival Moments · 节日瞬间'},
-      {src: 'images/festival/11.jpg', cap: 'Festival Moments · 节日瞬间'},
-      {src: 'images/festival/12.jpg', cap: 'Festival Moments · 节日瞬间'},
-      {src: 'images/festival/13.jpg', cap: 'Festival Moments · 节日瞬间'},
-      {src: 'images/festival/14.jpg', cap: 'Festival Moments · 节日瞬间'},
-      {src: 'images/festival/15.jpg', cap: 'Festival Moments · 节日瞬间'},
-      {src: 'images/festival/16.jpg', cap: 'Festival Moments · 节日瞬间'},
+      {src: 'images/2025 Festival/1.jpg', cap: 'Buddhist Culture Festival 2025 · 2025年纽约佛教文化节'},
+      {src: 'images/2025 Festival/2.jpg', cap: 'Festival Ceremony · 法会仪式'},
+      {src: 'images/2025 Festival/4.jpg', cap: 'Cultural Celebration · 文化庆典'},
+      {src: 'images/2025 Festival/5.jpg', cap: 'Dharma Teaching · 佛法传授'},
+      {src: 'images/2025 Festival/6.jpg', cap: 'Festival Moments · 节日瞬间'},
+      {src: 'images/2025 Festival/7.jpg', cap: 'Festival Moments · 节日瞬间'},
+      {src: 'images/2025 Festival/8.jpg', cap: 'Festival Moments · 节日瞬间'},
+      {src: 'images/2025 Festival/9.jpg', cap: 'Festival Moments · 节日瞬间'},
+      {src: 'images/2025 Festival/10.jpg', cap: 'Festival Moments · 节日瞬间'},
+      {src: 'images/2025 Festival/11.jpg', cap: 'Festival Moments · 节日瞬间'},
+      {src: 'images/2025 Festival/12.jpg', cap: 'Festival Moments · 节日瞬间'},
+      {src: 'images/2025 Festival/13.jpg', cap: 'Festival Moments · 节日瞬间'},
+      {src: 'images/2025 Festival/14.jpg', cap: 'Festival Moments · 节日瞬间'},
+      {src: 'images/2025 Festival/15.jpg', cap: 'Festival Moments · 节日瞬间'},
+      {src: 'images/2025 Festival/16.jpg', cap: 'Festival Moments · 节日瞬间'},
+    ],
+    mindfulwalk: [
+      {src: 'images/2026 Mindful Walk/1.flyer.JPG', cap: 'A Mindful Walk for Wellness 2026 · 正念步行 · 身心安乐'},
+      {src: 'images/2026 Mindful Walk/2.volunteers_group_photo.JPG', cap: 'Gathering at Cadman Plaza Park · 卡德曼广场公园集合'},
+      {src: 'images/2026 Mindful Walk/3.opening_mindful_music.JPG', cap: 'Opening Mindful Music · 开幕正念音乐'},
+      {src: 'images/2026 Mindful Walk/4.autism_teenager_performance.JPG', cap: 'Performance by Youth with Autism · 自闭症青少年表演'},
+      {src: 'images/2026 Mindful Walk/5.sound_meditation.JPG', cap: 'Sound Meditation & Blessing · 钵音禅修与祈福'},
+      {src: 'images/2026 Mindful Walk/6.sound_meditation_audience.JPG', cap: 'A Moment of Stillness · 静心一刻'},
+      {src: 'images/2026 Mindful Walk/7.blessed_water.JPG', cap: 'Blessing with Purified Water · 洒净祈福'},
+      {src: 'images/2026 Mindful Walk/8.mindful_walk_start.JPG', cap: 'The Walk Begins · 正念步行启程'},
+      {src: 'images/2026 Mindful Walk/9.mindful_walk_brooklyn_bridge.JPG', cap: 'Crossing the Brooklyn Bridge · 走过布鲁克林大桥'},
+      {src: 'images/2026 Mindful Walk/10.mindful_walk_reaction1.JPG', cap: 'Walking Together · 桥上同行'},
+      {src: 'images/2026 Mindful Walk/11.mindful_walk_reaction2.JPG', cap: 'Along the Promenade · 步道上的笑容'},
+      {src: 'images/2026 Mindful Walk/12.mindful_walk_reaction3.JPG', cap: 'Shared Blessings · 途中的祝福'},
+      {src: 'images/2026 Mindful Walk/13.mindful_walk_finish.JPG', cap: 'Approaching Manhattan · 抵达曼哈顿'},
+      {src: 'images/2026 Mindful Walk/14.conclude_at_city_hall.JPG', cap: 'Dedication of Merits at City Hall Park · 市政厅公园回向'},
     ],
     forum: [
       {src: 'images/forum/IMG_7287.JPG', cap: 'Forum of Faith 2025 · 2025年信仰论坛'},
